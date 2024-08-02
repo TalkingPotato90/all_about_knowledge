@@ -12,7 +12,7 @@
 6. Spring -> Spring Boot
 7. Monolithic -> MSA
 8. jsp -> Thymeleaf
-9. mtBatis -> JPA,Hibernate
+9. myBatis -> JPA,Hibernate
 
 ## ⏲️ 개발 기간
 2024.08.01 ~
