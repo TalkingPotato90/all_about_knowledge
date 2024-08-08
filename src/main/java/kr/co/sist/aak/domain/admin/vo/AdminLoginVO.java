@@ -7,7 +7,6 @@ import lombok.ToString;
 
 @Getter
 @Setter
-@ToString
 public class AdminLoginVO {
 	private String id,password;
 
