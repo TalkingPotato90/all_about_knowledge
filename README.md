@@ -8,8 +8,8 @@
 2. DB 설계
 3. UI 통일
 4. xml -> java
-5. Maven -> Gradle
-6. Spring -> Spring Boot
+5. Maven -> Gradle : 24.08.08
+6. Spring -> Spring Boot : 24.08.08 ~
 7. Monolithic -> MSA
 8. jsp -> Thymeleaf
 9. myBatis -> JPA,Hibernate
@@ -18,7 +18,7 @@
 2024.08.01 ~
 
 ## 💻 개발환경
-Version : Java 11 -> Java 21
+Version : Java 11 -> Java 17
 
 IDE : STS3 -> IntelliJ
 
