@@ -46,12 +46,16 @@ dependencies {
     compileOnly libs.javax.servlet.jsp.jsp.api
     compileOnly libs.org.projectlombok.lombok
     annotationProcessor libs.org.projectlombok.lombok
+    implementation 'com.zaxxer:HikariCP:5.1.0'
+    implementation 'org.mybatis:mybatis-spring:3.0.3'
+
+
 }
 
 group = 'kr.co.sist'
 version = '1.0.0-BUILD-SNAPSHOT'
 description = 'all_about_knowledge'
-java.sourceCompatibility = JavaVersion.VERSION_11
+java.sourceCompatibility = JavaVersion.VERSION_17
 
 publishing {
     publications {
