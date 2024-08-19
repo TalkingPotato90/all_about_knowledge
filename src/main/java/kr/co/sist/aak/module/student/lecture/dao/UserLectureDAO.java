@@ -153,16 +153,14 @@ public class UserLectureDAO {
 	 * @param sub_code
 	 * @return
 	 */
-	public List<UserLectureDomain> selectMyLecQna(String q_std_id){
+	public List<UserLectureDomain> selectMyLecQna(String Q_std_id){
 		List<UserLectureDomain> list = null;
 		
 		MybatisDAO mbDAO = MybatisDAO.getInstance();
 		SqlSession ss = mbDAO.getMyBatisHandler(false);
 		
-		list = ss.selectList("kr.co.sist.aak.student3.selectAllMySubQuestion", q_std_id);
+		list = ss.selectList("kr.co.sist.aak.student3.selectAllMySubQuestion", Q_std_id);
 		mbDAO.closeHanlder(ss);
-//		System.out.println("========================list================="+q_std_id);
-//		System.out.println("========================list================="+list);
 		return list;
 	}//selectAllLecture
 	
@@ -173,17 +171,17 @@ public class UserLectureDAO {
 	 * @throws PersistenceException
 	 */
 	public String selectMaxValue() throws PersistenceException {
-		String qna_no = null;
+		String s_qna_no = null;
 
 		MybatisDAO mbDAO = MybatisDAO.getInstance();
 		SqlSession ss = mbDAO.getMyBatisHandler(false);
-		qna_no = ss.selectOne("kr.co.sist.aak.student3.selectSubQMaxval");
+		s_qna_no = ss.selectOne("kr.co.sist.aak.student3.selectSubQMaxval");
 		mbDAO.closeHanlder(ss);
-//		System.out.println("==================================================qna_no===" + qna_no);
-		return qna_no;
+		System.out.println("==================================================qna_no===" + s_qna_no);
+		return s_qna_no;
 	}
 
-	public int insertSubQuestion(UserApplySubVO uqVO) throws PersistenceException {
+	public int insertSubQuestion(UserQnaVO uqVO) throws PersistenceException {
 		int cnt = 0;
 		MybatisDAO mbDAO = MybatisDAO.getInstance();
 		SqlSession ss = mbDAO.getMyBatisHandler(false);
@@ -193,7 +191,7 @@ public class UserLectureDAO {
 			ss.commit();
 		}
 		mbDAO.closeHanlder(ss);
-//		System.out.println("===============cnt==================" + cnt);
+		System.out.println("===============cnt==================" + cnt);
 		
 		return cnt;
 	}

@@ -4,31 +4,6 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.co.sist.aak.student3">
 
-	<!-- 강의검색 -->
-<!-- 	<select id="selectSubject" resultType="UserLectureDomain" parameterType="searchVO">
-	select
-	s.SUB_CODE,s.STATUS,s.IMAGE,sc.SUB_TITLE,sc.CAT_CODE,si.INST_ID,(
-	select count(*) as cnt
-	from STD_SUBJECT
-	where sub_code=s.sub_code ) cnt
-	from
-	SUBJECT s, SUBJECT_CODE sc, SUB_INSTRUCTOR si
-	where
-	(s.SUB_CODE=sc.SUB_CODE and s.SUB_CODE=si.SUB_CODE)
-	and s.sub_code in (select sub_code
-	from (select SUB_CODE,count(*) as cnt
-	from STD_SUBJECT
-	group by sub_code
-	)
-	)
-		<where>
-		<if test="keyword neq null and keyword neq ''">
-		
-		</if>
-		</where>
-	</select> -->
-	
-
 	<!-- 고정 기본 강의 리스트 -->
 	<select id="selectAllUserLecture" resultType="UserLectureDomain">
 		select
@@ -175,45 +150,44 @@
 
 	<!-- 전체 강의 문의 리스트 -->
 	<select id="selectAllLecQna" resultType="UserLectureDomain" parameterType="String">
-		select QNA_NO, TITLE as question_title, STD_ID as q_std_id, CONTENT as q_content, 
-		Q_DATE as q_date, SUB_CODE, STATUS as q_status, ANS_CONTENT, INST_ID as ans_id, ANS_DATE
-		from  QNA_SUB_Q
-		where  SUB_CODE= #{sub_code}
+		<!-- select QNA_NO, TITLE as Question_title, STD_ID as
+		Q_std_id, CONTENT as Q_content, Q_DATE, SUB_CODE,
+		LEC_CODE as
+		Q_lec_code, STATUS as Q_status, ANS_CONTENT, ANS_DATE, INST_ID
+		from
+		QNA_SUB_Q
+		where SUB_CODE=#{sub_code}
+		 -->
+		select sq.QNA_NO, sq.TITLE as Question_title, sq.STD_ID as
+		Q_std_id, sq.CONTENT as Q_content, sq.Q_DATE, sq.SUB_CODE,
+		sq.LEC_CODE as
+		Q_lec_code, sq.STATUS as Q_status, sq.ANS_CONTENT, sq.ANS_DATE, sq.INST_ID,sc.SUB_TITLE
+		from
+		QNA_SUB_Q sq, SUBJECT_CODE sc
+		where sq.SUB_CODE = sc.SUB_CODE AND sq.SUB_CODE = #{sub_code}
 	</select>
 	
 	<!-- 나의 강의 문의 리스트 -->
 	<select id="selectAllMySubQuestion" resultType="UserLectureDomain" parameterType="String">
-		SELECT 
-		    q.QNA_NO, 
-		    q.TITLE AS question_title, 
-		    q.STD_ID AS q_std_id, 
-		    q.CONTENT AS q_content,
-		    q.Q_DATE AS q_date, 
-		    q.SUB_CODE as q_subcode, 
-		    s.SUB_TITLE as q_subTitle,
-		    q.STATUS AS q_status, 
-		    q.ANS_CONTENT, 
-		    q.INST_ID AS ans_id, 
-		    q.ANS_DATE
-		FROM 
-		    QNA_SUB_Q q
-		JOIN 
-		    SUBJECT_CODE s ON q.SUB_CODE = s.SUB_CODE
-		WHERE 
-		    q.STD_ID = #{q_std_id};
+		select sq.QNA_NO, sq.TITLE as Question_title, sq.STD_ID as
+		Q_std_id, sq.CONTENT as Q_content, sq.Q_DATE, sq.SUB_CODE,
+		sq.LEC_CODE as
+		Q_lec_code, sq.STATUS as Q_status, sq.ANS_CONTENT, sq.ANS_DATE, sq.INST_ID as ans_id,sc.SUB_TITLE as Q_subTitle
+		from
+		QNA_SUB_Q sq, SUBJECT_CODE sc
+		where sq.SUB_CODE = sc.SUB_CODE AND sq.STD_ID = #{std_id}
 	</select>
 	
 	<!-- 최대문의 넘버 -->
 	<select id="selectSubQMaxval" resultType="String">
-	select max(qna_no)
+	select max(QNA_NO)
 	from QNA_SUB_Q
 	</select>
 	
 	<!-- 강의 문의 작성 -->
-	<insert id="insertSubQuestion" parameterType="UserApplySubVO">
-	insert into QNA_SUB_Q(QNA_NO, TITLE, STD_ID, CONTENT, Q_DATE, SUB_CODE, STATUS, ANS_CONTENT, INST_ID, ANS_DATE)
-    values (#{qna_no}, #{title},#{s_std_id},#{content},sysdate,
-     #{s_subcode},'N',null,null,null)
+	<insert id="insertSubQuestion" parameterType="UserQnaVO">
+	insert into QNA_SUB_Q(QNA_NO, TITLE, STD_ID, CONTENT, Q_DATE, SUB_CODE, LEC_CODE, STATUS, ANS_CONTENT, INST_ID, ANS_DATE)
+    values (#{s_qna_no}, #{s_title},#{s_stdId},#{s_content},sysdate, #{s_subCode},null, 'N',null,null,null)
 	</insert>
 
 

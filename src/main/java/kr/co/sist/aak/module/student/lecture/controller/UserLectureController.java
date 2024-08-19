@@ -101,15 +101,15 @@ public class UserLectureController {
 	
 	@PostMapping("/sub_qna_write_process.do")
 	public String addSiteQ(Principal principal,
-	                       @RequestParam("s_subcode") String s_subcode,
-	                       UserApplySubVO uqVO, Model model) {
-	    String s_std_id = principal.getName(); // std_id 가져오기
-	    uqVO.setS_std_id(s_std_id); // UserQnaVO에 설정
-	    uqVO.setS_subcode(s_subcode); // 파라미터로 받은 sub_code 설정
+	                       @RequestParam("s_subCode") String sub_code,
+	                       UserQnaVO uqVO, Model model) {
+	    String s_stdId = principal.getName(); // std_id 가져오기
+	    uqVO.setS_stdId(s_stdId); // UserQnaVO에 설정
+	    uqVO.setS_subCode(sub_code); // 파라미터로 받은 sub_code 설정
 	    
 	    // 새로운 QNA_NO 생성
 	    String newQnaNo = uls.searchMaxQVal();
-	    uqVO.setQna_no(newQnaNo);
+	    uqVO.setS_qna_no(newQnaNo);
 
 	    // 문의사항 추가
 	    int cnt = uls.addSubQ(uqVO);
@@ -117,7 +117,7 @@ public class UserLectureController {
 	        model.addAttribute("uqVO", uqVO);
 	    }
 
-//	    System.out.println("========================uqVO============================"+uqVO);
+	    System.out.println("========================uqVO============================"+uqVO);
 	    return "redirect:/lecture_list.do";
 	}
 	

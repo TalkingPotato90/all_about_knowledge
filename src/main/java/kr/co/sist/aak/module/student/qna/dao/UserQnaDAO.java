@@ -92,7 +92,7 @@ public class UserQnaDAO {
 		SqlSession ss = mbDAO.getMyBatisHandler(false);
 		qna_no = ss.selectOne("kr.co.sist.aak.student2.selectSiteQMaxval");
 		mbDAO.closeHanlder(ss);
-//		System.out.println("==================================================qna_no===" + qna_no);
+		System.out.println("==================================================qna_no===" + qna_no);
 		return qna_no;
 	}
 
@@ -114,8 +114,8 @@ public class UserQnaDAO {
 			ss.commit();
 		}
 		mbDAO.closeHanlder(ss);
-//		System.out.println("===============cnt==================" + cnt);
-//		System.out.println("===============cnt2==================" + cnt2);
+		System.out.println("===============cnt==================" + cnt);
+		System.out.println("===============cnt2==================" + cnt2);
 		return cnt+cnt2;
 	}
 	
@@ -136,7 +136,7 @@ public class UserQnaDAO {
 			ss.commit();
 		}
 		mbDAO.closeHanlder(ss);
-//		System.out.println("===============cnt==================" + cnt);
+		System.out.println("===============cnt==================" + cnt);
 		return cnt;
 	}
 

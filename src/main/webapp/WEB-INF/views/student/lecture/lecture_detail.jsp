@@ -199,8 +199,6 @@
 					</div>
 						</c:forEach>
 				</div>
-				
-				
 				<!-- 강의문의 -->
 				<div id="강의문의" class="content hidden">
 					<div style="text-align: right;">
@@ -214,18 +212,18 @@
 						<div class="header">문의사항 작성</div>
 						<div class="content">
 							<div class="ui form">
-								<form id="frmq" action="sub_qna_write_process.do" method="post">
+								<form id="frmq" action="/all_about_knowledge/sub_qna_write_process.do" method="post">
 									<div class="field">
 										<label>작성자: <sec:authentication property='name' /> <%--| 
 									  작성일: <span th:text="${#dates.format(#dates.createNow(), 'yyyy-MM-dd')}"></span> --%></label>
 									</div>
 									<div class="field">
-										<label>제목</label> <input type="text" name="title" id="title"
+										<label>제목</label> <input type="text" name="s_title" id="s_title"
 											placeholder="제목을 입력하세요">
 									</div>
 									<div class="field">
 										<label>내용</label>
-										<textarea rows="5" name="content" id="content"
+										<textarea rows="5" name="s_content" id="s_content"
 											placeholder="문의사항을 입력하세요"></textarea>
 										<div class="ui message" id="charCount">0/300자</div>
 									</div>
@@ -236,7 +234,7 @@
 								id="btnWriteQ">
 							<input type="hidden" name="s_stdId"
 								value="<sec:authentication property='name'/>">
-							<input type="hidden" name="s_subcode" value="<c:out value="${uld.sub_code}" />">
+							<input type="hidden" name="s_subCode" value="<c:out value="${uld.sub_code}" />">
 							</form>
 						</div>
 					</div>
@@ -253,14 +251,10 @@
 						<div class="ui divider"></div>
 						<p><c:out value="${uld5.q_content}" /></p>
 					</div>
-					
-					<!-- 답변 -->
-					<c:if test="${not empty uld5.ans_content}">
 					<div class="box inline"
 						style="height: 80px; margin: 0; background-color: #f5f5f5;">
 						<p><c:out value="${uld5.ans_content}" /></p>
 					</div>
-					</c:if>
 					</div>
 					</c:forEach>
 					

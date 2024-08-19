@@ -6,8 +6,7 @@
 <meta charset="UTF-8">
 <title>AAK - All About Knowledge</title>
 
-<!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png"> -->
+<link rel="icon" type="image/png" sizes="32x32" href="/all_about_knowledge/favicon.png">
         
 <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 <link href="http://localhost/all_about_knowledge/front/student/css/login_join.css" rel="stylesheet">

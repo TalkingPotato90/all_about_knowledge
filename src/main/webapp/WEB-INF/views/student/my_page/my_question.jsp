@@ -7,8 +7,6 @@ Desc : 사용자(학생)의 마이페이지 나의문의 화면
 	pageEncoding="UTF-8" info=""%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ taglib prefix="sec"
-	uri="http://www.springframework.org/security/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -76,8 +74,8 @@ Desc : 사용자(학생)의 마이페이지 나의문의 화면
 
 			<!-- menu tab 표시 -->
 			<div class="ui top attached tabular menu">
-				<a class="item active" data-tab="first"> 강의 문의 </a> <!-- <a class="item"
-					data-tab="second"> AAK 문의 </a> -->
+				<a class="item active" data-tab="first"> 강의 문의 </a> <a class="item"
+					data-tab="second"> AAK 문의 </a>
 			</div>
 
 			<!-- 강의 문의 -->
@@ -94,31 +92,21 @@ Desc : 사용자(학생)의 마이페이지 나의문의 화면
 						</tr>
 					</thead>
 					<tbody>
-						<%-- <c:forEach var="list2" items="${requestScope.list2 }"
+						<c:forEach var="list2" items="${requestScope.list2 }"
 							varStatus="i">
 							<tr class="clickable-row">
 								<td class="center-aligned"><c:out value="${i.count }" /></td>
-								<td class="left-aligned"><a
-									href="site_qna_detail.do?qna_no=${list2.qna_no}"> <c:out
+								<td class="left-aligned"><%-- <a
+									href="site_qna_detail.do?qna_no=${list2.qna_no}"> --%> <c:out
 											value="${list2.question_title}" />
-								<!-- </a> --></td>
+								</a></td>
 								<td class="center-aligned"><c:out value="${list2.q_subTitle}" /></td>
 								<td class="center-aligned"><c:out value="${list2.q_std_id}" /></td>
 								<td class="center-aligned"><fmt:formatDate
 										pattern="yyyy-MM-dd" value="${list2.q_date }" /></td>
 								<td class="center-aligned"><c:out value="${list2.q_status}" /></td>
 							</tr>
-						</c:forEach> --%>
-						<tr class="clickable-row">
-								<td class="center-aligned">1</td>
-								<td class="left-aligned">test<a
-									href="site_qna_detail.do?qna_no=${list2.qna_no}"> 
-								 </a></td>
-								<td class="center-aligned">Java 왕기초 4주 단기완성</td>
-								<td class="center-aligned">dowon1234</td>
-								<td class="center-aligned">2024-07-15</td>
-								<td class="center-aligned">대기중</td>
-							</tr>
+						</c:forEach>
 					</tbody>
 				</table>
 			</div>
@@ -168,7 +156,7 @@ Desc : 사용자(학생)의 마이페이지 나의문의 화면
 			</div>
 
 			<!-- 사이트 문의 -->
-			<%-- <div class="ui bottom attached tab segment" data-tab="second">
+			<div class="ui bottom attached tab segment" data-tab="second">
 				<a href="${pageContext.request.contextPath}/site_qna.do">
 					<button class="ui center button">작성하기</button>
 				</a>
@@ -199,11 +187,11 @@ Desc : 사용자(학생)의 마이페이지 나의문의 화면
 						</c:forEach>
 					</tbody>
 				</table>
-			</div> --%>
+			</div>
 
 
 			<!-- 문의사항 상세보기 모달창 -->
-			<!-- <div class="ui modal" id="myModal">
+			<div class="ui modal" id="myModal">
 				<i class="close icon"></i>
 				<div class="header">문의사항</div>
 				<div class="content">
@@ -239,7 +227,7 @@ Desc : 사용자(학생)의 마이페이지 나의문의 화면
 						</div>
 					</div>
 				</div>
-			</div> -->
+			</div>
 
 		</div>
 

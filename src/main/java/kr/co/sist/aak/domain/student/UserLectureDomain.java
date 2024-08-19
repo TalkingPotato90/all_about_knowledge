@@ -30,8 +30,8 @@ public class UserLectureDomain {
 	private Date write_date;
 	
 	//강의문의
-	private String qna_no, question_title, q_std_id, q_content, 
-	q_lec_code, q_status, ans_content,q_subTitle,ans_id,q_subcode;//title as Q_title
+	private String qna_no, Question_title, Q_std_id, Q_content, 
+	Q_lec_code, Q_status, ans_content,Q_subTitle,ans_id;//title as Q_title
 	private Date q_date, ans_date; 
 	private int cnt;
 	

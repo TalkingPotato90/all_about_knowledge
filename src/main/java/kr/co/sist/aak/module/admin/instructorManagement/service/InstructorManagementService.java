@@ -28,7 +28,10 @@ public class InstructorManagementService {
 		
 		return list;
 	}
-
+	/**
+	 * °­»çÁß »èÁ¦ ÇÃ·¡±×°¡ N(ÀçÁ÷Áß)ÀÎ °­»çµéÀÇ ¸®½ºÆ®¸¦ Ãâ·ÂÇÏ´Â method
+	 * @return
+	 */
 	public List<InstructorManagementDomain> searchAllNInstructor() {
 		List<InstructorManagementDomain> list =null;
 		try {
@@ -41,7 +44,7 @@ public class InstructorManagementService {
 		return list;
 	}
 	/**
-	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½×°ï¿½ Y(ï¿½ï¿½ï¿½ ï¿½ï¿½)ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ method
+	 * °­»çÁß »èÁ¦ ÇÃ·¡±×°¡ Y(Åð»ç ÇÑ)ÀÎ °­»çµéÀÇ ¸®½ºÆ®¸¦ Ãâ·ÂÇÏ´Â method
 	 * @return
 	 */
 	public List<InstructorManagementDomain> searchAllyInstructor() {

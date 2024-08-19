@@ -39,19 +39,10 @@
 		$(".clickable-row").click(function() {
 			window.location = $(this).data("href");
 		});
-		
 		// 모달 열기 버튼 클릭 이벤트
-	    $('#openModalBtn').click(function() {
-        // JSP에서 전달한 인증 상태 값
-        var isAuthenticated = <%= request.isUserInRole("ROLE_USER") %>;
-
-        if (isAuthenticated) {
-            $('#myModal').modal('show'); // 모달을 보이도록 설정
-        } else {
-            alert('로그인 후 문의 가능합니다.');
-        }
-    });
-		
+		$('#openModalBtn').click(function() {
+			$('#myModal').modal('show'); // 모달을 보이도록 설정
+		});
 		// 글자 수 세기
 		$('#content').on('input', function() {
 			var textLength = $(this).val().length;

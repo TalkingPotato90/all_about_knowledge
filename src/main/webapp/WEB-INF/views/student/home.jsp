@@ -220,9 +220,9 @@
 					style="text-align: center; margin-bottom: 1.5em;">인기강좌</h3>
 
 				<!-- 카테고리 별 인기강좌 -->
-				<!-- <div class="ui secondary pointing menu">
+				<div class="ui secondary pointing menu">
 					<a class="active item"> 컴퓨터 공학 </a> <a class="item"> 프로그래밍 언어 </a>
-				</div>  -->
+				</div> 
 				<!-- 인기강좌 카드 -->
 				<div class="ui three stackable link cards" id="lectureCards">
 			<c:forEach var="listLecture" items="${requestScope.listLecture }"
@@ -282,9 +282,9 @@
 					style="text-align: center; margin-bottom: 1.5em;">신규강좌</h3>
 
 				<!-- 카테고리 별 인기강좌 -->
-				<!-- <div class="ui secondary pointing menu">
+				<div class="ui secondary pointing menu">
 					<a class="active item"> 컴퓨터 공학 </a> <a class="item"> 프로그래밍 언어 </a>
-				</div> -->
+				</div>
 				<div class="ui three stackable link cards" id="lectureCards">
 			<c:forEach var="listLecture2" items="${requestScope.listLecture2 }"
 				varStatus="i">
