@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.sist.aak.admin2">
+	<!-- 여기에 다이나믹쿼리 넣어야함... -->
+	<!-- 퇴사 안 한 강사들 -->
+	<select id="selectNAllInstructor" resultType ="InstructorManagementDomain">
+	SELECT i.INST_ID, i.NAME, i.EMAIL, i.INTRODUCTION, i.IMAGE, i.PHONE, i.EDUCATION, i.MAJOR_SUBJECT, COUNT(s.SUB_CODE) AS subject_count
+FROM INST_INFO i
+JOIN INSTRUCTOR ins ON i.INST_ID = ins.INST_ID AND ins.DEL_YN = 'N'
+LEFT JOIN SUB_INSTRUCTOR s ON i.INST_ID = s.INST_ID
+GROUP BY i.INST_ID, i.NAME, i.EMAIL, i.INTRODUCTION, i.IMAGE, i.PHONE, i.EDUCATION, i.MAJOR_SUBJECT
+ORDER BY i.INST_ID desc
+	</select>
+	<select id ="searchInstName" resultType ="InstructorManagementDomain">
+	select ii.INST_ID, ii.NAME, ii.EMAIL, ii.INTRODUCTION, ii.IMAGE, ii.PHONE, ii.MAJOR_SUBJECT, ii.EDUCATION ,i.DEL_YN
+	from INST_INFO ii, INSTRUCTOR i
+	where (ii.INST_ID = i.INST_ID) and (i.DEL_YN ='N') and(ii.NAME like '%'||#{name}||'%') 
+	
+	</select>
+	<!-- 퇴사한 강사 조회 -->
+	<select id="selectYAllInstructor" resultType ="InstructorManagementDomain">
+	SELECT i.INST_ID, i.NAME, i.EMAIL, i.INTRODUCTION, i.IMAGE, i.PHONE, i.EDUCATION, i.MAJOR_SUBJECT, COUNT(s.SUB_CODE) AS subject_count
+FROM INST_INFO i
+JOIN INSTRUCTOR ins ON i.INST_ID = ins.INST_ID AND ins.DEL_YN = 'Y'
+LEFT JOIN SUB_INSTRUCTOR s ON i.INST_ID = s.INST_ID
+GROUP BY i.INST_ID, i.NAME, i.EMAIL, i.INTRODUCTION, i.IMAGE, i.PHONE, i.EDUCATION, i.MAJOR_SUBJECT
+ORDER BY i.INST_ID desc
+	</select>
+	<select id="selectinstIDMaxval" resultType ="String">
+	select max(INST_ID)
+	from   INST_INFO
+	</select>
+	<select id="selectOneInstructor" parameterType="String" resultType ="InstructorManagementDomain">
+	select NAME,INST_ID,PHONE,EMAIL,EDUCATION,MAJOR_SUBJECT,image,introduction
+	from INST_INFO
+	where inst_id = #{inst_id}
+	</select>
+	<insert id="insertInstructorInfo" parameterType="InstructorManagementVO">
+	INSERT INTO INST_INFO (INST_ID, NAME, EMAIL, INTRODUCTION, IMAGE,PHONE,EDUCATION,MAJOR_SUBJECT) VALUES
+	(#{inst_id}, #{name}, #{email}, #{introduction}, #{image},#{phone},#{education},#{major_subject})
+
+	</insert>
+	<insert id="insertInstructor" parameterType="InstructorManagementVO">
+	insert into INSTRUCTOR  (INST_ID, PASSWORD, DEL_YN) values
+	(#{inst_id},#{password},'N')
+
+	</insert>
+	<update id="updateInstructorInfo" parameterType="InstructorManagementVO">
+	update INST_INFO
+	<set>
+	<if test="name neq null and name neq ''">
+	name =#{name},
+	</if>
+	<if test="email neq null and email neq ''">
+	email =#{email},
+	</if>
+	<if test="introduction neq null and introduction neq ''">
+	introduction =#{introduction},
+	</if>
+	<if test="image neq null and image neq ''">
+	image =#{image},
+	</if>
+	<if test="phone neq null and phone neq ''">
+	phone =#{phone},
+	</if>
+	<if test="education neq null and education neq ''">
+	education =#{education},
+	</if>
+	<if test="major_subject neq null and major_subject neq ''">
+	major_subject =#{major_subject},
+	</if>
+	</set>
+	where INST_ID = #{inst_id}
+	</update>
+	
+	<update id="deleteinstructor" parameterType="String">
+	update INSTRUCTOR
+	set DEL_YN ='Y'
+	where INST_ID = #{inst_id}
+	</update>
+	<select id="selectInstructorSubTitle" parameterType="String" resultType="String">
+	select sc.SUB_TITLE subject_name
+	from   SUBJECT_CODE sc, SUB_INSTRUCTOR  si
+	where (sc.SUB_CODE=si.SUB_CODE) and si.INST_ID=#{inst_id}
+	</select>
+	<select id="instructorsMajorSub" resultType="InstructorManagementDomain">
+	SELECT
+    MAJOR_SUBJECT,
+    COUNT(MAJOR_SUBJECT) AS SUBJECT_COUNT,
+    (COUNT(MAJOR_SUBJECT) * 100.0 / (SELECT COUNT(*) FROM INST_INFO)) AS PERCENTAGE
+	FROM
+    INST_INFO
+	GROUP BY
+    MAJOR_SUBJECT
+    order by PERCENTAGE desc
+	</select>
+	<select id ="cntdelynY" resultType="int">
+	select count(DEL_YN)
+	from INSTRUCTOR
+	where DEL_YN ='Y'
+	group by DEL_YN
+	</select>
+	<select id ="cntdelynN" resultType="int">
+	select count(DEL_YN)
+	from INSTRUCTOR
+	where DEL_YN ='N'
+	group by DEL_YN
+	</select>
+	<select id="selectInstforeach" resultType="InstructorManagementDomain" parameterType="java.util.HashMap">
+	SELECT i.INST_ID, i.NAME, i.EMAIL, i.INTRODUCTION, i.IMAGE, i.PHONE, i.EDUCATION, i.MAJOR_SUBJECT, COUNT(s.SUB_CODE) AS subject_count
+	FROM INST_INFO i
+	JOIN INSTRUCTOR ins ON i.INST_ID = ins.INST_ID 
+	<if test="del_yns neq null">
+	 AND ins.DEL_YN in
+	 <foreach collection="del_yns" open="(" item="del_yn" separator="," close=")" index="i">
+	 #{del_yn}
+	 </foreach>
+	</if>
+	LEFT JOIN SUB_INSTRUCTOR s ON i.INST_ID = s.INST_ID
+	GROUP BY i.INST_ID, i.NAME, i.EMAIL, i.INTRODUCTION, i.IMAGE, i.PHONE, i.EDUCATION, i.MAJOR_SUBJECT
+	ORDER BY i.INST_ID desc
+	</select>
+</mapper>

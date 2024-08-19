@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.co.sist.aak.student.auth.exit">
+	<!-- STUDENT -->
+    <update id="deleteStudent" parameterType="String">
+		UPDATE STUDENT SET DEL_YN = 'Y' WHERE STD_ID = #{stdId}
+    </update>
+    
+    <!-- WITHDRAWL -->
+    <insert id="insertExitReason" parameterType="WithdrawalVO">
+    	INSERT INTO WITHDRAWAL (STD_ID, REASON) VALUES (#{stdId}, #{reason})
+    </insert>
+
+</mapper>

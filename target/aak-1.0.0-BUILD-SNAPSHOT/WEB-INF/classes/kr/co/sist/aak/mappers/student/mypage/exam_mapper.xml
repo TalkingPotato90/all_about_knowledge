@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.sist.aak.student.mypage.exam">
+
+	<select id="selectExam" parameterType="String" resultType="MyExamVO">
+		SELECT Q_NO as qNo, CONTENT , EX_1 as ex1 ,EX_2 as ex2, EX_3 as ex3 ,EX_4 as ex4
+	    FROM INST_EXAM
+	    WHERE SUB_CODE = #{subCode}
+	    order by Q_NO ASC
+    </select>
+    
+    <insert id="insertExamResult" parameterType="MyExamVO">
+        INSERT INTO STD_EXAM (STD_ID, Q_NO, SUB_CODE, ANSWER, SCORE)
+        SELECT #{stdId}, #{qNo}, #{subCode}, #{answer},
+            CASE 
+                WHEN (SELECT solution FROM INST_EXAM WHERE Q_NO = #{qNo} AND SUB_CODE = #{subCode}) = #{answer} THEN 20
+                ELSE 0
+            END
+        FROM dual
+    </insert>
+    
+    <select id="selectTotalScore" parameterType="map" resultType="int">
+        SELECT SUM(SCORE) AS grade
+        FROM STD_EXAM
+        WHERE STD_ID = #{stdId} AND SUB_CODE = #{subCode}
+    </select>
+    
+	<select id="checkIfExamTaken" parameterType="map" resultType="int">
+        SELECT COUNT(*) 
+        FROM STD_EXAM 
+        WHERE STD_ID = #{stdId} AND SUB_CODE = #{subCode}
+    </select>
+
+</mapper>

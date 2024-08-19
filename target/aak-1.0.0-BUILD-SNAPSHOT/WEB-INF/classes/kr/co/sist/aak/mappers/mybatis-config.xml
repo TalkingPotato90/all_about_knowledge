@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+<properties resource="kr/co/sist/aak/properties/database.properties"/>
+<!-- 
+<settings>
+	  <setting name="logImpl" value="LOG4J2"/>
+</settings> -->
+ 
+<typeAliases>
+ <typeAlias type="kr.co.sist.aak.domain.admin.NoticeManagementDomain" alias="noticeManagementDomain"/>
+ <typeAlias type="kr.co.sist.aak.domain.admin.vo.NoticeManagementVO" alias="noticeManagementVO"/>
+ <typeAlias type="kr.co.sist.aak.domain.admin.InstructorManagementDomain" alias="InstructorManagementDomain"/>
+ <typeAlias type="kr.co.sist.aak.domain.admin.vo.InstructorManagementVO" alias="InstructorManagementVO"/>
+ <typeAlias type="kr.co.sist.aak.domain.admin.vo.EduCategoryManagementVO" alias="EduCategoryManagementVO"/>
+ <typeAlias type="kr.co.sist.aak.domain.admin.EduCategoryManagementDomain" alias="EduCategoryManagementDomain"/>
+ <typeAlias type="kr.co.sist.aak.domain.admin.vo.AdminLoginVO" alias="AdminLoginVO"/>
+ <typeAlias type="kr.co.sist.aak.domain.admin.AdminLoginDomain" alias="AdminLoginDomain"/>
+ <typeAlias type="kr.co.sist.aak.domain.admin.vo.AdminPermissionVO" alias="AdminPermissionVO"/>
+ <typeAlias type="kr.co.sist.aak.domain.admin.AdminPermissionDomain" alias="AdminPermissionDomain"/>
+ 
+  <typeAlias type="kr.co.sist.aak.domain.admin.MemberManagementDomain" alias="MemberManagementDomain"/>
+ <typeAlias type="kr.co.sist.aak.domain.admin.vo.MemberManagementVO" alias="MemberManagementVO"/>
+  <typeAlias type="kr.co.sist.aak.domain.admin.QnaManagementDomain" alias="QnaManagementDomain"/>
+ <typeAlias type="kr.co.sist.aak.domain.admin.vo.QnaManagementVO" alias="QnaManagementVO"/>
+ <typeAlias type="kr.co.sist.aak.domain.admin.LectureManagementDomain" alias="LectureManagementDomain"/>
+ <typeAlias type="kr.co.sist.aak.domain.admin.vo.LectureManagementVO" alias="LectureManagementVO"/>
+   <typeAlias type="kr.co.sist.aak.domain.admin.SubjectManagementDomain" alias="SubjectManagementDomain"/>
+ <typeAlias type="kr.co.sist.aak.domain.admin.vo.SubjectManagementVO" alias="SubjectManagementVO"/>
+  <typeAlias type="kr.co.sist.aak.domain.admin.DashBoardDomain" alias="DashBoardDomain"/>
+ 
+ 
+ <!-- student typeAlias 시작 -->
+ <typeAlias alias="JoinVO" type="kr.co.sist.aak.domain.student.vo.JoinVO"/>
+ <typeAlias alias="MyLectureVO" type="kr.co.sist.aak.domain.student.vo.MyLectureVO"/>
+ <typeAlias alias="InterestLectureVO" type="kr.co.sist.aak.domain.student.vo.InterestLectureVO"/>
+ <typeAlias alias="LoginVO" type="kr.co.sist.aak.domain.student.vo.LoginVO"/>
+ <typeAlias alias="MyExamVO" type="kr.co.sist.aak.domain.student.vo.MyExamVO"/>
+ <typeAlias alias="DetailLectureVO" type="kr.co.sist.aak.domain.student.vo.DetailLectureVO"/>
+ <typeAlias alias="WithdrawalVO" type="kr.co.sist.aak.domain.student.vo.WithdrawalVO"/>
+ <typeAlias alias="PlayLectureVO" type="kr.co.sist.aak.domain.student.vo.PlayLectureVO"/>
+ <typeAlias alias="LectureNoticeVO" type="kr.co.sist.aak.domain.student.vo.LectureNoticeVO"/>
+ 
+ <typeAlias type="kr.co.sist.aak.domain.student.UserNoticeDomain" alias="UserNoticeDomain"/>
+ <typeAlias type="kr.co.sist.aak.domain.student.UserLectureDomain" alias="UserLectureDomain"/>
+ <typeAlias type="kr.co.sist.aak.domain.student.UserQnaDomain" alias="UserQnaDomain"/>
+ <typeAlias type="kr.co.sist.aak.domain.student.vo.UserQnaVO" alias="UserQnaVO"/>
+ <typeAlias type="kr.co.sist.aak.domain.student.vo.UserApplySubVO" alias="UserApplySubVO"/>
+ <!-- student typeAlias 종료 --> 
+
+<!-- 강사 typeAlias -->
+ <typeAlias type="kr.co.sist.aak.domain.instructor.vo.InstructorInfoVO" alias="instructorInfoVO"/>
+ <typeAlias type="kr.co.sist.aak.domain.instructor.vo.LectureLessonVO" alias="lectureLessonVO"/>
+ <typeAlias type="kr.co.sist.aak.domain.instructor.vo.OpenRequestVO" alias="openRequestVO"/>
+ <typeAlias type="kr.co.sist.aak.domain.instructor.vo.QnaVO" alias="qnaVO"/>
+ <typeAlias type="kr.co.sist.aak.domain.instructor.vo.LectureVO" alias="lectureVO"/>
+ <typeAlias type="kr.co.sist.aak.domain.instructor.vo.instructorLoginVO" alias="instructorLoginVO"/>
+ 
+ <typeAlias type="kr.co.sist.aak.domain.instructor.InstructorInfoDomain" alias="instructorInfoDomain"/>
+ <typeAlias type="kr.co.sist.aak.domain.instructor.LectureLessonDomain" alias="lectureLessonDomain"/>
+ <typeAlias type="kr.co.sist.aak.domain.instructor.LectureDomain" alias="lectureDomain"/>
+ <typeAlias type="kr.co.sist.aak.domain.instructor.OpenRequestDomain" alias="openRequestDomain"/>
+ <typeAlias type="kr.co.sist.aak.domain.instructor.QnaDomain" alias="qnaDomain"/>
+ <typeAlias type="kr.co.sist.aak.domain.instructor.RejectDomain" alias="rejectDomain"/>
+ <typeAlias type="kr.co.sist.aak.domain.instructor.InstructorLoginDomain" alias="instructorLoginDomain"/>
+ 
+ 
+ <typeAlias type="kr.co.sist.aak.domain.instructor.NoticeDomain" alias="NoticeDomain"/>
+ <typeAlias type="kr.co.sist.aak.domain.instructor.StudentListDomain" alias="StudentListDomain"/>
+ <typeAlias type="kr.co.sist.aak.domain.instructor.ExamDomain" alias="ExamDomain"/>
+ <typeAlias type="kr.co.sist.aak.domain.instructor.vo.ExamVO" alias="ExamVO"/>
+<typeAlias type="kr.co.sist.aak.domain.instructor.vo.NoticeVO" alias="NoticeVO"/>
+<!-- 강사 typeAlias 끝 -->
+ 
+</typeAliases>
+
+
+  <environments default="development">
+    <environment id="development">
+      <transactionManager type="JDBC"/>
+      <dataSource type="POOLED">
+        <property name="driver" value="${driver}"/>
+        <property name="url" value="${connectionURL}"/>
+        <property name="username" value="${username}"/>
+        <property name="password" value="${password}"/>
+      </dataSource>
+    </environment>
+  </environments>
+  <mappers>
+ <!-- NoticeMAnagement  -->
+    <mapper resource="kr/co/sist/aak/mappers/admin_mapper.xml"/>
+ <!-- Instructormanagement -->  
+    <mapper resource="kr/co/sist/aak/mappers/admin_mapper2.xml"/>
+ <!-- ManageEduCat&Sub -->  
+    <mapper resource="kr/co/sist/aak/mappers/admin_mapper3.xml"/>
+ <!-- Member -->   
+    <mapper resource="kr/co/sist/aak/mappers/admin_mapper4.xml"/>
+ <!-- login&Auth -->   
+    <mapper resource="kr/co/sist/aak/mappers/admin_mapper5.xml"/>
+  <!-- qna -->
+    <mapper resource="kr/co/sist/aak/mappers/admin_mapper6.xml"/>
+ <!-- admin_sub_lec -->
+    <mapper resource="kr/co/sist/aak/mappers/admin_mapper7.xml"/>
+ <!-- admin_dash -->
+    <mapper resource="kr/co/sist/aak/mappers/admin_mapper8.xml"/>
+    
+    <!-- student mapper 시작 -->
+    <mapper resource="kr/co/sist/aak/mappers/student/auth/join_mapper.xml"/>
+    <mapper resource="kr/co/sist/aak/mappers/student/auth/login_mapper.xml"/>
+    <mapper resource="kr/co/sist/aak/mappers/student/auth/withdrawal_mapper.xml"/>
+    <mapper resource="kr/co/sist/aak/mappers/student/mypage/dashboard_mapper.xml"/>
+    <mapper resource="kr/co/sist/aak/mappers/student/mypage/exam_mapper.xml"/>
+    <mapper resource="kr/co/sist/aak/mappers/student/mypage/info_mapper.xml"/>
+    <mapper resource="kr/co/sist/aak/mappers/student/mypage/interest_lecture_mapper.xml"/>
+    <mapper resource="kr/co/sist/aak/mappers/student/mypage/my_lecture_mapper.xml"/>
+    <mapper resource="kr/co/sist/aak/mappers/student/mypage/detail_lecture_mapper.xml"/>
+    <mapper resource="kr/co/sist/aak/mappers/student/mypage/play_lecture_mapper.xml"/>
+    
+    <mapper resource="kr/co/sist/aak/mappers/student_mapper.xml"/>
+    <mapper resource="kr/co/sist/aak/mappers/student_mapper2.xml"/>
+    <mapper resource="kr/co/sist/aak/mappers/student_mapper3.xml"/>
+    <!-- student mapper 종료 -->
+    
+    <mapper resource="kr/co/sist/aak/mappers/instructor_mapper.xml"/>
+    <mapper resource="kr/co/sist/aak/mappers/instructor_mapper5.xml"/>
+    <mapper resource="kr/co/sist/aak/mappers/instructor_mapper6.xml"/>
+    <mapper resource="kr/co/sist/aak/mappers/instructor_mapper7.xml"/>
+     <mapper resource="kr/co/sist/aak/mappers/instructor_mapper2.xml"/>
+     <mapper resource="kr/co/sist/aak/mappers/instructor_mapper3.xml"/>
+     <mapper resource="kr/co/sist/aak/mappers/instructor_mapper4.xml"/>
+
+  </mappers>
+</configuration>

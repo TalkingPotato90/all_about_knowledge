@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.sist.aak.student2">
+	<!-- 나의 사이트 qna 리스트 -->
+	<select id="selectSiteNoticeQnaList" resultType="UserQnaDomain" parameterType="String">
+		select QNA_NO,
+		TITLE, STD_ID, Q_DATE, STATUS
+		from QNA_GEN_Q
+		where STD_ID=#{std_id}
+		ORDER BY Q_DATE DESC
+	</select>
+
+	<!-- 사이트 Question 상세보기 -->
+	<select id="selectOneUserNoticeQ" resultType="UserQnaDomain"
+		parameterType="String">
+		select QNA_NO, TITLE, STD_ID, CONTENT AS q_content,
+		Q_DATE
+		from
+		QNA_GEN_Q
+		where QNA_NO = #{qna_no}
+	</select>
+
+	<!-- 사이트 답변 상세보기 -->
+	<select id="selectOneUserNoticeA" resultType="UserQnaDomain"
+		parameterType="String">
+		select q.QNA_NO, a.ID, a.CONTENT AS A_CONTENT,
+		a.ANS_DATE, q.TITLE, q.STD_ID, q.CONTENT AS Q_CONTENT, q.Q_DATE
+		from
+		QNA_GEN_A a, QNA_GEN_Q q
+		where q.QNA_NO = #{QNA_NO}
+		and q.QNA_NO =a.QNA_NO
+	</select>
+
+	<!-- 최대 문의 넘버 -->
+	<select id="selectSiteQMaxval" resultType="String">
+	select max(QNA_NO)
+	from QNA_GEN_Q
+	</select>
+	<insert id="insertSiteQuestion" parameterType="UserQnaVO">
+	insert into QNA_GEN_Q(QNA_NO, TITLE, STD_ID, CONTENT, Q_DATE, STATUS)
+    values (#{qna_no}, #{title}, #{std_id}, #{q_content}, sysdate, 'N')
+	</insert>
+	
+	<!-- 답변에 넘버 추가 -->
+	<insert id="insertSiteAnsNo" parameterType="UserQnaVO">
+	insert into QNA_GEN_A(QNA_NO, ID, CONTENT, ANS_DATE)
+	values(#{qna_no},null,null,null)
+	</insert>
+
+
+
+	<!-- 사이트 문의 수정 -->
+	<update id="updateSiteQuestion" parameterType="UserQnaVO">
+    UPDATE QNA_GEN_Q
+    SET TITLE = #{title},
+        CONTENT = #{q_content}
+    WHERE QNA_NO = #{qna_no}
+	</update>
+	
+	<!-- 사이트 문의 삭제 -->
+	<update id="deleteUserSiteQ" parameterType="String">
+	update QNA_GEN_Q
+	set	STATUS = 'D'
+	where QNA_NO=#{QNA_NO}
+	</update>
+
+
+</mapper>

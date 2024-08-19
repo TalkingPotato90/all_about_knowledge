@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.sist.aak.student3">
+
+	<!-- 고정 기본 강의 리스트 -->
+	<select id="selectAllUserLecture" resultType="UserLectureDomain">
+		select
+	s.SUB_CODE,s.STATUS,s.IMAGE,sc.SUB_TITLE,sc.CAT_CODE,si.INST_ID,(
+	select count(*) as cnt
+	from STD_SUBJECT
+	where sub_code=s.sub_code ) cnt
+	from
+	SUBJECT s, SUBJECT_CODE sc, SUB_INSTRUCTOR si
+	where
+	(s.SUB_CODE=sc.SUB_CODE and s.SUB_CODE=si.SUB_CODE)
+	and s.sub_code in (select sub_code
+	from (select SUB_CODE,count(*) as cnt
+	from STD_SUBJECT
+	group by sub_code
+	)
+	)
+	</select>
+	
+	<!-- 상위 카테고리 리스트 불러오기 -->
+    <select id="selectAllCategory" resultType="UserLectureDomain">
+        SELECT CAT_CODE, CAT_NAME
+        FROM CAT_CODE
+        WHERE PRIME_CAT_CODE='N/A'
+    </select>
+     <!-- 하위 카테고리 리스트 불러오기 -->
+    <select id="selectSubCat" resultType="UserLectureDomain">
+        select CAT_CODE, CAT_NAME
+		from CAT_CODE
+		where PRIME_CAT_CODE =#{prime_cat_code}
+    </select>
+    
+    
+   
+    
+    
+	
+	<!-- 상위 카테고리의 강의 리스트 -->
+	<select id="selectLecturesByCategory" parameterType="String" resultType="UserLectureDomain">
+	    SELECT
+            S.SUB_CODE, S.SUB_TITLE,
+            C.CAT_CODE,C.CAT_NAME,C.PRIME_CAT_CODE,
+            SB.CREATE_DATE, SB.STATUS,SB.IMAGE,
+            SI.INST_ID, (
+	SELECT COUNT(*) AS CNT
+	FROM STD_SUBJECT
+	WHERE SUB_CODE=S.SUB_CODE ) CNT
+
+        FROM
+            SUBJECT_CODE S,  CAT_CODE C , SUBJECT SB, SUB_INSTRUCTOR SI
+
+	 WHERE
+	 (S.SUB_CODE=SB.SUB_CODE AND S.SUB_CODE=SI.SUB_CODE) AND (S.CAT_CODE=C.CAT_CODE)
+	</select>
+	
+	
+
+	<!-- 강의 상세 -->
+	<select id="selectOneUserLecture" resultType="UserLectureDomain" parameterType="String">
+		select SUB_CODE, STATUS, IMAGE, SUB_TITLE, CAT_CODE,
+		INST_ID, INTRO,
+		GOAL, TOTAL_NO, TOTAL_TIME, CREATE_DATE, COMP_TIME
+		from
+		(
+		select s.SUB_CODE, s.STATUS, s.IMAGE, sc.SUB_TITLE, sc.CAT_CODE,
+		si.INST_ID,
+		s.INTRO, s.GOAL, s.TOTAL_NO, s.TOTAL_TIME, s.CREATE_DATE,
+		s.COMP_TIME
+		from SUBJECT s, SUBJECT_CODE sc, SUB_INSTRUCTOR si
+		where
+		s.SUB_CODE = sc.SUB_CODE
+		and s.SUB_CODE = si.SUB_CODE
+		and s.SUB_CODE =
+		#{sub_code}
+		)
+	</select>
+	
+	<!-- 상세 - 수강생 수 -->
+	<select id="selectOneStdCnt" resultType="UserLectureDomain" parameterType="String">
+		select
+	s.SUB_CODE,s.STATUS,s.IMAGE,sc.SUB_TITLE,sc.CAT_CODE,si.INST_ID,(
+	select count(*) as cnt
+	from STD_SUBJECT
+	where sub_code=s.sub_code ) cnt
+	from
+	SUBJECT s, SUBJECT_CODE sc, SUB_INSTRUCTOR si
+	where
+	(s.SUB_CODE=sc.SUB_CODE and s.SUB_CODE=si.SUB_CODE)
+	and s.sub_code in (select sub_code
+	from (select SUB_CODE,count(*) as cnt
+	from STD_SUBJECT
+	group by sub_code)
+	where s.SUB_CODE =#{sub_code})
+	</select>
+	
+	 <!-- 상/하위 카테고리명 -->
+    <select id="selectCatWithSubCode" resultType="UserLectureDomain" parameterType="String">
+	  <![CDATA[
+	    SELECT
+	        cc.CAT_CODE,
+	        cc.CAT_NAME,
+	        cc.PRIME_CAT_CODE,
+	        sc.SUB_CODE,
+	        sc.SUB_TITLE,
+	        (SELECT cc2.CAT_NAME 
+	         FROM CAT_CODE cc2 
+	         WHERE cc2.CAT_CODE = cc.PRIME_CAT_CODE) AS CAT2
+	    FROM
+	        CAT_CODE cc
+	    JOIN
+	        SUBJECT_CODE sc
+	    ON
+	        cc.CAT_CODE = sc.CAT_CODE
+	    WHERE
+	        sc.SUB_CODE = 'SUB_000001'
+	  ]]>
+	</select>
+	
+	<!-- 이미 수강신청 된 강의 숫자 받아오기 -->
+	<select id="selectRegCourse" resultType="int" parameterType="Map">
+	    SELECT COUNT(*) 
+	    FROM STD_SUBJECT 
+	    WHERE STD_ID = #{std_id} AND SUB_CODE = #{sub_code}
+	</select>
+	
+
+	<!-- 강의 공지사항 리스트 -->
+	<select id="selectAllInstNotice" resultType="UserLectureDomain" parameterType="String">
+		select INST_ID, TITLE, WRITE_DATE, CONTENT, STATUS as
+		lec_status, SUB_CODE
+		from INST_NOTICE
+		where SUB_CODE=#{sub_code}
+		order by
+		WRITE_DATE desc
+	</select>
+
+	<!-- 강의목차 리스트 -->
+	<select id="selectAllLecture" resultType="UserLectureDomain" parameterType="String">
+		select LEC_CODE, TITLE as lec_title, TIME, LEC_EXPLAIN
+		from LECTURE
+		where SUB_CODE=#{sub_code}
+		order by LEC_CODE asc
+	</select>
+
+	<!-- 전체 강의 문의 리스트 -->
+	<select id="selectAllLecQna" resultType="UserLectureDomain" parameterType="String">
+		<!-- select QNA_NO, TITLE as Question_title, STD_ID as
+		Q_std_id, CONTENT as Q_content, Q_DATE, SUB_CODE,
+		LEC_CODE as
+		Q_lec_code, STATUS as Q_status, ANS_CONTENT, ANS_DATE, INST_ID
+		from
+		QNA_SUB_Q
+		where SUB_CODE=#{sub_code}
+		 -->
+		select sq.QNA_NO, sq.TITLE as Question_title, sq.STD_ID as
+		Q_std_id, sq.CONTENT as Q_content, sq.Q_DATE, sq.SUB_CODE,
+		sq.LEC_CODE as
+		Q_lec_code, sq.STATUS as Q_status, sq.ANS_CONTENT, sq.ANS_DATE, sq.INST_ID,sc.SUB_TITLE
+		from
+		QNA_SUB_Q sq, SUBJECT_CODE sc
+		where sq.SUB_CODE = sc.SUB_CODE AND sq.SUB_CODE = #{sub_code}
+	</select>
+	
+	<!-- 나의 강의 문의 리스트 -->
+	<select id="selectAllMySubQuestion" resultType="UserLectureDomain" parameterType="String">
+		select sq.QNA_NO, sq.TITLE as Question_title, sq.STD_ID as
+		Q_std_id, sq.CONTENT as Q_content, sq.Q_DATE, sq.SUB_CODE,
+		sq.LEC_CODE as
+		Q_lec_code, sq.STATUS as Q_status, sq.ANS_CONTENT, sq.ANS_DATE, sq.INST_ID as ans_id,sc.SUB_TITLE as Q_subTitle
+		from
+		QNA_SUB_Q sq, SUBJECT_CODE sc
+		where sq.SUB_CODE = sc.SUB_CODE AND sq.STD_ID = #{std_id}
+	</select>
+	
+	<!-- 최대문의 넘버 -->
+	<select id="selectSubQMaxval" resultType="String">
+	select max(QNA_NO)
+	from QNA_SUB_Q
+	</select>
+	
+	<!-- 강의 문의 작성 -->
+	<insert id="insertSubQuestion" parameterType="UserQnaVO">
+	insert into QNA_SUB_Q(QNA_NO, TITLE, STD_ID, CONTENT, Q_DATE, SUB_CODE, LEC_CODE, STATUS, ANS_CONTENT, INST_ID, ANS_DATE)
+    values (#{s_qna_no}, #{s_title},#{s_stdId},#{s_content},sysdate, #{s_subCode},null, 'N',null,null,null)
+	</insert>
+
+
+	<!-- 카테고리에 따른 강의 -->
+	<select id="selectCatLecture" resultType="UserLectureDomain" parameterType="String">
+		SELECT SUB_CODE, STATUS, IMAGE, SUB_TITLE, CAT_CODE, INST_ID
+		FROM (
+		SELECT s.SUB_CODE, s.STATUS, s.IMAGE, sc.SUB_TITLE, sc.CAT_CODE,
+		si.INST_ID
+		FROM SUBJECT s
+		JOIN SUBJECT_CODE sc ON s.SUB_CODE =
+		sc.SUB_CODE
+		JOIN SUB_INSTRUCTOR si ON s.SUB_CODE = si.SUB_CODE
+		)
+		WHERE
+		<choose>
+			<when test="CAT_CODE == '0'">
+				sc.CAT_CODE = 'CAT_000003'
+			</when>
+			<when test="CAT_CODE == '1'">
+				sc.CAT_CODE = 'CAT_000004'
+			</when>
+			<when test="CAT_CODE == '2'">
+				sc.CAT_CODE = 'CAT_000005'
+			</when>
+			<when test="CAT_CODE == '3'">
+				sc.CAT_CODE = 'CAT_000006'
+			</when>
+			<otherwise>
+				sc.CAT_CODE = #{CAT_CODE}
+			</otherwise>
+		</choose>
+	</select>
+
+	<!-- 수강 신청 -->
+	<select id="insertApplySub" resultType="UserApplySubVO">
+	insert into  STD_SUBJECT(STD_ID, SUB_CODE, APPLY, INTEREST)
+	values(#{std_id},#{sub_code},'P',null)
+	</select>
+	
+	<!-- 관심강의 추가 -->
+
+	<!-- 인기강의 순 리스트-->
+	<select id="selectSubcodePop" resultType="UserLectureDomain">
+	select
+	s.SUB_CODE,s.STATUS,s.IMAGE,sc.SUB_TITLE,sc.CAT_CODE,si.INST_ID,(
+	select count(*) as cnt
+	from STD_SUBJECT
+	where sub_code=s.sub_code ) cnt
+	from
+	SUBJECT s, SUBJECT_CODE sc, SUB_INSTRUCTOR si
+	where
+	(s.SUB_CODE=sc.SUB_CODE and s.SUB_CODE=si.SUB_CODE)
+	and s.sub_code in (select sub_code
+	from (select SUB_CODE,count(*) as cnt
+	from STD_SUBJECT
+	group by sub_code
+	order by cnt desc)
+	where cnt between 1 and 5)
+	order by cnt desc
+	</select>
+	
+	<!-- 신규강의 순 리스트-->
+	<select id="selectLatestSub" resultType="UserLectureDomain">
+	 select
+	s.SUB_CODE,s.STATUS,s.IMAGE,sc.SUB_TITLE,sc.CAT_CODE,si.INST_ID,s.create_date,(
+	select count(*) as cnt
+	from STD_SUBJECT
+	where sub_code=s.sub_code ) cnt
+	from
+	SUBJECT s, SUBJECT_CODE sc, SUB_INSTRUCTOR si
+	where
+	(s.SUB_CODE=sc.SUB_CODE and s.SUB_CODE=si.SUB_CODE)
+	and s.sub_code in (select sub_code
+	from (select SUB_CODE,count(*) as cnt
+	from STD_SUBJECT
+	group by sub_code
+	order by cnt desc)
+	where cnt between 1 and 3)
+	order by create_date desc
+	</select>
+
+
+</mapper>

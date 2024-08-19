@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.sist.aak.instructor">
+<!-- 카테고리 불러오기 -->
+<select id="selectCategory" resultType="lectureDomain">
+select cat_name,cat_code
+from CAT_CODE
+where PRIME_CAT_CODE='N/A'
+</select>
+
+<!-- 과목코오드 조회 -->
+<select id="subtitle" resultType="lectureDomain" parameterType="String">
+select distinct sb.CAT_CODE ,cc.cat_name
+from subject_code sb, CAT_CODE cc
+where (sb.cat_code=cc.cat_code) and cc.prime_CAT_CODE = #{ cat_code } 
+</select>
+
+<!-- sub_code max값 조회 -->
+<select id="maxCode" resultType="String">
+select 'SUB_'||lpad(substr(max(sub_code),5)+1,6,0) sub_code
+from subject_code
+</select>
+
+<!-- lec_code max값 조회 -->
+<select id="maxLecCode" resultType="String">
+select 'LEC_'||lpad(substr(max(lec_code),5)+1,6,0) lec_code
+from lecture
+</select>
+
+<!-- subject_code 테이블에 sub_code insert -->
+<insert id="subjectCodeT" parameterType="lectureVO" >
+insert into subject_code(cat_code,sub_code, sub_title)
+values(#{cat_code},#{sub_code},#{sub_title})
+</insert>
+
+<!-- subject 테이블에 sub_code insert -->
+<!-- 강의 개설신청1 : 강의상세 -->
+<insert id="insertLecture" parameterType="lectureVO" >
+insert into subject (sub_code, intro, goal, total_no,image,status) 
+values(#{sub_code},#{intro},#{goal},#{total_no},#{image},'N')
+
+<!-- sub_code, sub_title, intro, goal, total_no, total_time,status, image, comp_time, inst_id -->
+</insert>
+
+<!-- 강의 개설신청2 : 강의목차 -->
+<insert id="lectureLesson" parameterType="lectureLessonVO">
+insert into lecture (sub_code, lec_code, title, time, status, f_name, lec_explain)
+values (#{sub_code},#{lec_code},#{title},#{time},#{status},#{f_name},#{lec_explain})
+</insert>
+	
+</mapper>

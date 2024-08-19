@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.sist.aak.admin">
+	<!-- 공지사항 관리. 작성자 김일신 -->
+	<!-- 모든 공지사항의 내용을 출력하는 쿼리 -->
+	
+	<select id="selectAllAdminNotice" resultType ="noticeManagementDomain">
+	select * from NOTICE order by NOTI_NO desc 
+	</select> 
+	<select id ="count" resultType="int">
+	select count(*) as total from NOTICE
+	</select>
+	
+	<!-- 공지사항 관리 상태에 따른 검색 쿼리 -->
+	<select id="dynamicNotificaionStatus" resultType="noticeManagementDomain" parameterType="int" >
+	select noti_no, write_date,status,title
+	from NOTICE
+	where 
+	<choose>
+	<when test ="status eq 0">
+	status = 'RESV'
+	</when>
+	<when test ="status eq 1">
+	status = 'POST'
+	</when>
+	<otherwise>
+	status = 'DELT'
+	</otherwise>
+	</choose>
+	</select>
+	
+	<!--  공지사항 제목으로 검색 -->
+	
+	<select id="searchNotificationTitle" resultType="noticeManagementDomain" parameterType="String">
+	select * 
+	from NOTICE
+	where title like '%'||#{title}||'%'
+	order by NOTI_NO desc 
+	</select>
+	
+	
+	<select id="selectAdminNoticeMaxval" resultType ="String">
+	select max(NOTI_NO)
+	from   NOTICE
+	</select>
+	
+	<select id="selectOneAdminNotice" parameterType="String" resultType ="noticeManagementDomain">
+	select * 
+	from NOTICE
+	where noti_no =#{noti_no}
+	</select>
+	
+	
+	<insert id="insertAdminNotice" parameterType="noticeManagementVO">
+	INSERT INTO NOTICE (NOTI_NO, TITLE, ID, CONTENT, STATUS,IMAGE) VALUES
+	(#{noti_no},#{title} ,#{id} ,#{content} ,#{status},#{image} )
+
+	</insert>
+	<!--   -->
+	<update id="updateAdminNoticeStatus" parameterType="noticeManagementVO">
+	update NOTICE
+	set    STATUS = #{status}
+	where  NOTI_NO = #{noti_no}
+	</update>
+	
+	<update id="updateAdminNotice" parameterType="noticeManagementVO">
+	update NOTICE
+	<set>
+		<if test ="title neq null and title neq '' ">
+		title =#{title},
+		</if>
+		<if test ="content neq null and content neq '' ">
+		content =#{content},
+		</if>
+		<if test ="image neq null and image neq '' ">
+		image =#{image},
+		</if>
+	</set>
+	where  NOTI_NO = #{noti_no}
+	</update>
+	
+	<update id="deleteAdminNotice" parameterType="String">
+	update NOTICE
+	set    STATUS = 'DELT'
+	where  NOTI_NO = #{noti_no}
+	</update>
+	<select id="selectResvCnt" resultType="int">
+	select count(NOTI_NO)
+from NOTICE
+where STATUS='RESV'
+	</select>
+	<select id="selectResvTitle" resultType="noticeManagementDomain">
+	select TITLE
+from NOTICE
+where STATUS='RESV'
+	</select>
+	<select id ="selectRecentNotice" parameterType="String" resultType="noticeManagementDomain">
+	select *
+	from notice
+	where  NOTI_NO = #{noti_no}
+	</select>
+	<select id="selectCntResv" resultType="int">
+	select count(status)
+	from notice
+	where status ='RESV'
+	</select>
+	<select id="selectCntPost" resultType="int">
+	select count(status)
+	from notice
+	where status ='POST'
+	</select>
+	<select id="selectCntDelt" resultType="int">
+	select count(status)
+	from notice
+	where status ='DELT'
+	</select>
+</mapper>

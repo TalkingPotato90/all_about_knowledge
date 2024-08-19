@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.sist.aak.student.mypage.interest">
+
+<select id="selectInterestLectureList" parameterType="String" resultType="InterestLectureVO">
+		SELECT DISTINCT cc.CAT_NAME as catName, sc.SUB_TITLE as subTitle, ii.NAME, ss.INTEREST, ss.SUB_CODE as subCode
+		FROM CAT_CODE cc
+		JOIN SUBJECT_CODE sc ON cc.CAT_CODE = sc.CAT_CODE
+		JOIN STD_SUBJECT ss ON ss.SUB_CODE = sc.SUB_CODE
+		JOIN SUB_INSTRUCTOR si ON si.SUB_CODE = sc.SUB_CODE
+		JOIN INST_INFO ii ON ii.INST_ID = si.INST_ID
+		JOIN LEC_STATUS ls ON ls.SUB_CODE = sc.SUB_CODE
+		JOIN SUBJECT s ON s.SUB_CODE = sc.SUB_CODE
+		LEFT JOIN STD_EXAM se ON se.SUB_CODE = sc.SUB_CODE AND se.STD_ID = ss.STD_ID
+	    WHERE ss.STD_ID = #{stdId} and ss.INTEREST = 'Y'
+    </select>
+
+</mapper>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.sist.aak.instructor4">
+	<!-- 문제리스트조회 -->
+	<select id="select_exam" resultType="ExamDomain">
+	select SUB_CODE,Q_NO,CONTENT,EX_1,EX_2,EX_3,EX_4,SOLUTION
+	from INST_EXAM
+
+	</select>
+	
+	<select id="select_exam_subcode" parameterType="string" resultType="ExamDomain">
+	select SUB_CODE,Q_NO,CONTENT,EX_1,EX_2,EX_3,EX_4,SOLUTION
+	from INST_EXAM
+	WHERE SUB_CODE = #{SUB_CODE, jdbcType=VARCHAR}
+
+	</select>
+	
+	
+	<insert id="insert_exam" parameterType="ExamVO">
+    INSERT INTO INST_EXAM(SUB_CODE, Q_NO, CONTENT, EX_1, EX_2, EX_3, EX_4, SOLUTION)
+    VALUES (#{SUB_CODE, jdbcType=VARCHAR}, #{Q_NO}, #{CONTENT, jdbcType=VARCHAR}, #{EX_1, jdbcType=VARCHAR}, #{EX_2, jdbcType=VARCHAR}, #{EX_3, jdbcType=VARCHAR}, #{EX_4, jdbcType=VARCHAR}, #{SOLUTION, jdbcType=VARCHAR})
+	</insert>
+	
+	<update id="update_exam" parameterType="ExamVO">
+    UPDATE INST_EXAM
+    SET CONTENT = #{CONTENT, jdbcType=VARCHAR},
+        EX_1 = #{EX_1, jdbcType=VARCHAR},
+        EX_2 = #{EX_2, jdbcType=VARCHAR},
+        EX_3 = #{EX_3, jdbcType=VARCHAR},
+        EX_4 = #{EX_4, jdbcType=VARCHAR},
+        SOLUTION = #{SOLUTION, jdbcType=VARCHAR}
+    WHERE Q_NO = #{Q_NO, jdbcType=VARCHAR}
+</update>
+
+	<select id="countQNO" resultType="int">
+    select max(Q_NO) as maxQNo
+    from INST_EXAM
+	</select>
+	
+	<select id="select_exam1" resultType="ExamDomain">
+	select SUB_CODE,Q_NO,CONTENT,EX_1,EX_2,EX_3,EX_4,SOLUTION
+	from INST_EXAM
+	
+
+	</select>
+	
+	
+	
+	
+	
+	
+	
+</mapper>

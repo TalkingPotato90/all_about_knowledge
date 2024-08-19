@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.sist.aak.admin5">
+	
+<select id ="loginProcess" parameterType="AdminLoginVO" resultType="AdminLoginDomain">
+ select PASSWORD,auth
+from ADMIN
+where ID =#{id}
+</select>
+<select id="selectAdminPermission" parameterType="AdminLoginVO" resultType="AdminPermissionDomain">
+select * from ADMINPERMISSIONS
+where ID =#{id}
+</select>
+<select id="selectOneAdminPermission" parameterType="AdminLoginVO" resultType="AdminPermissionDomain">
+select * from ADMINPERMISSIONS
+where ID =#{id}
+</select>
+<!-- 관리자 계정 권한 인서트 -->
+<insert id ="insertAdmin" parameterType="AdminPermissionVO">
+insert into ADMIN values (#{id},#{password},'ADMIN')
+</insert>
+<select id="selectAllAdmin" resultType="AdminPermissionDomain" >
+select *
+from ADMINPERMISSIONS
+where ID !='aaksuper'
+</select>
+<insert id="insertAdminPermission" parameterType="AdminPermissionVO">
+insert into ADMINPERMISSIONS values
+(#{id},
+#{notice_management},
+#{member_management},
+#{category_management},
+#{instructor_management},
+#{qna_management})
+</insert>
+<update id="updatePermissions" parameterType="AdminPermissionVO">
+update ADMINPERMISSIONS
+set
+NOTICE_MANAGEMENT =#{notice_management},
+MEMBER_MANAGEMENT = #{member_management},
+CATEGORY_MANAGEMENT = #{category_management},
+INSTRUCTOR_MANAGEMENT = #{instructor_management},
+QNA_MANAGEMENT = #{qna_management}
+where ID =#{id}
+</update>
+</mapper>

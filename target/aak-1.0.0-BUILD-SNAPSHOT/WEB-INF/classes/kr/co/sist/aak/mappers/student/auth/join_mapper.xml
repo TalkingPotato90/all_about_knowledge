@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.co.sist.aak.student.auth.join">
+	<!-- STUDENT -->
+    <insert id="insertStudent" parameterType="JoinVO">
+        INSERT INTO student (std_id, password, del_yn)
+        VALUES (#{stdId}, #{password}, 'N')
+    </insert>
+
+    <!-- STD_INFO -->
+    <insert id="insertStudentInfo" parameterType="JoinVO">
+        INSERT INTO std_info (std_id, name, birth, tel, email)
+        VALUES (#{stdId}, #{name}, #{birth}, #{tel}, #{email})
+    </insert>
+</mapper>

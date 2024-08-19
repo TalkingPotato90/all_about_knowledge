@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.sist.aak.admin7">
+	
+	<!-- 신청 강의 쿼리 -->
+	<select id="selectSubject" resultType ="SubjectManagementDomain">
+	SELECT
+    	S.sub_code,
+   	 	s.total_no,
+		c.sub_title,
+		i.name,
+		cc.cat_name
+
+	FROM subject s
+	JOIN SUBJECT_CODE c ON S.sub_code = c.sub_code
+	join SUB_INSTRUCTOR sc on sc.sub_code = c.sub_code
+	JOIN INST_INFO i ON i.INST_id = sc.INST_id
+	JOIN CAT_CODE cc ON cc.CAT_CODE = c.CAT_CODE
+	where s.status = 'N'
+	</select>
+
+	
+	<!-- 선택한 강의 정보 쿼리 -->
+	<select id="selectDetaleSubject" resultType ="SubjectManagementDomain">
+	SELECT
+    S.sub_code,
+    s.intro,
+    s.goal,
+    s.total_time,
+    s.status,
+    s.image as sub_image,
+    s.comp_time,
+    s.total_no,
+	c.sub_title,
+	i.name,
+	i.image as inst_image,
+	i.introduction,
+	cc.cat_name
+
+	FROM subject s
+
+	JOIN SUBJECT_CODE c ON S.sub_code = c.sub_code
+	join SUB_INSTRUCTOR si on si.sub_code = c.sub_code
+	JOIN INST_INFO i ON i.INST_id = si.INST_id
+	JOIN CAT_CODE cc ON cc.CAT_CODE = c.CAT_CODE
+	where S.sub_code = #{sub_code}
+	</select>
+	
+	<!-- 선택한 강의의 수업 쿼리 -->
+	<select id="selectLecture" resultType ="LectureManagementDomain">
+	SELECT
+    	S.sub_code,
+    	l.lec_code,
+    	l.title,
+    	l.time,
+    	l.f_name,
+   		l.lec_explain
+	FROM subject s
+	JOIN LECTURE l ON S.sub_code = l.sub_code
+	where S.sub_code = #{sub_code}
+	ORDER BY s.sub_code, l.lec_code
+
+	</select>
+	
+	<update id="updateSubject" parameterType="SubjectManagementVO">
+	update subject 
+	set status = 'Y', create_date = sysdate
+	where sub_code = #{sub_code}
+	</update>
+	
+	
+	
+	<update id="updateRefuseSubject" parameterType="SubjectManagementVO">
+	update subject 
+	set status = 'D', create_date = sysdate
+	where sub_code = #{sub_code}
+	</update>	
+
+	<insert id="insertRefuseSubject" parameterType="SubjectManagementVO">
+	insert into SUB_REJECT(sub_code, reason)
+	values(#{sub_code}, #{reason})
+	</insert>
+	
+	<select id="selectPreNSubject" resultType ="int">
+	select count(sub_code)
+	from subject
+	where status = 'N'
+	</select>
+	
+	
+	<select id="selectPreYSubject" resultType ="int">
+	select count(sub_code)
+	from subject
+	where status = 'Y'
+	</select>
+	
+	<select id="selectPreDSubject" resultType ="int">
+	select count(sub_code)
+	from subject
+	where status = 'D'
+	</select>
+	
+	
+	
+</mapper>

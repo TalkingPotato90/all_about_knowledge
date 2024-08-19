@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.sist.aak.admin4">
+	
+	<!-- 학생리스트 쿼리 -->
+	<select id="selectMember" resultType ="MemberManagementDomain">
+	SELECT 	s.std_id
+	,si.name
+	,s.del_yn
+	,s.signup_date
+	FROM student s
+	JOIN std_info si ON s.std_id = si.std_id
+	</select>
+
+	
+	<!-- 선택학생 세부 정보 쿼리 -->
+	<select id="selectDetaleMember" resultType ="MemberManagementDomain">
+	SELECT 	s.std_id
+	, si.name
+	, si.birth
+	, si.tel
+	, si.email
+	, s.del_yn
+	, s.signup_date
+	FROM student s
+	JOIN std_info si ON s.std_id = si.std_id
+	WHERE s.std_id = #{std_id}
+	
+	
+	</select>
+	
+	<!-- 학생 정보 변경 쿼리 -->
+	<update id="updateMember" parameterType="MemberManagementVO">
+	update std_info
+	set name = #{name}
+	,birth=#{birth}
+	,tel=#{tel}
+	,email=#{email}
+	where std_id = #{std_id}
+	</update>
+	
+	<!-- 총 탈퇴 학생 수 -->
+	<select id="nonMember" resultType ="int">
+	select count(std_id)
+	from student
+	where del_yn = 'Y'
+	</select>
+	
+	<!-- 현재 총 학생 수 -->
+	<select id="preMember" resultType ="int">
+	select count(std_id)
+	from student
+	where del_yn = 'N'
+	</select>
+	
+	<!-- 탈퇴한 학생 사유 -->
+	<select id="MemberReason" resultType ="MemberManagementDomain">
+	select
+	std_id,
+	reason
+	from WITHDRAWAL
+	where std_id= #{std_id}
+	
+	</select>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</mapper>

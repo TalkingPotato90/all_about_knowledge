@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.sist.aak.student">
+
+	
+	<!-- 사이트 공지사항 리스트 -->
+	<select id="selectAllUserNotice" resultType="UserNoticeDomain">
+    select * from NOTICE
+	where STATUS = 'POST'
+	order by WRITE_DATE desc
+	</select>
+
+	<!-- 사이트 공지사항 게시글 검색 -->
+	<select id="searchNoticeTitle" resultType="UserNoticeDomain" parameterType="String">
+	select * from NOTICE
+	where STATUS = 'POST'
+	and title like '%'||#{title}||'%'
+	order by WRITE_DATE desc
+	</select>
+
+	<!-- 사이트 공지사항 상세보기 -->
+	<select id="selectOneUserNotice" resultType="UserNoticeDomain" parameterType="String">
+		select TITLE, ID, WRITE_DATE, CONTENT
+		from NOTICE
+		where TITLE=#{TITLE}
+	</select>
+	
+	<!--  공지사항 제목으로 검색 -->
+	<select id="searchNotificationTitle" resultType="UserNoticeDomain" parameterType="String">
+	select * 
+	from NOTICE
+	where title like '%'||#{title}||'%'
+	order by NOTI_NO desc 
+	</select>
+	
+</mapper>

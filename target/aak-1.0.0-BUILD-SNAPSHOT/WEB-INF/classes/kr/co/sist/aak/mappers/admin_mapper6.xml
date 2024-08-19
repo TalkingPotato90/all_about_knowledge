@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.sist.aak.admin6">
+	
+	<!-- qna리스트 쿼리 -->
+	<select id="selectQnaAdmin" resultType ="QnaManagementDomain">
+	select qna_no, title, std_id, content as content_question, q_date, status 
+	from QNA_GEN_Q
+	</select>
+	
+	
+	<!-- qna 세부 정보 쿼리 -->
+	<select id="selectDetaleQnaAdmin" resultType ="QnaManagementDomain">
+	SELECT
+    Q.qna_no,
+    Q.title,
+    Q.std_id,
+    Q.content AS content_question,
+    A.content AS content_answer,
+    A.ans_date,
+    Q.q_date,
+    Q.status
+	FROM
+    QNA_GEN_Q Q
+	JOIN
+    QNA_GEN_A A ON Q.qna_no = A.qna_no
+    WHERE Q.qna_no = #{qna_no}
+	</select>
+	
+	<!-- qna 세부 정보 쿼리 -->
+	<select id="selectDetalDeletedQna" resultType ="QnaManagementDomain">
+	SELECT
+    Q.qna_no,
+    Q.title,
+    Q.std_id,
+    Q.content AS content_question,
+    A.content AS content_answer,
+    A.ans_date,
+    Q.q_date,
+    Q.status,
+    d.reaseon
+	FROM
+    QNA_GEN_Q Q
+	JOIN QNA_GEN_A A ON Q.qna_no = A.qna_no
+	JOIN qna_gen_delete d ON d.qna_no = A.qna_no
+    WHERE Q.qna_no = #{qna_no}
+	</select>
+	
+	
+	
+	<!-- qna 답번 입력 및 수정 쿼리 -->
+	<update id="updateQnaAnswerAdmin" parameterType="QnaManagementVO">
+	update qna_gen_a 
+	set content = #{content_answer}, id = #{id}, ans_date = sysdate
+	where qna_no = #{qna_no}
+	</update>
+	
+
+	
+	<!-- qna 질문 업데이트 쿼리 -->
+	<update id="updateQnaAdmin" parameterType="QnaManagementVO">
+	update qna_gen_q 
+	set status = 'Y'
+	where qna_no = #{qna_no}
+	</update>
+	
+	
+	<!-- qna 삭제 쿼리 -->
+	<update id="deleteQnaAdmin" parameterType="QnaManagementVO">
+	update qna_gen_q 
+	set status = 'D'
+	where qna_no = #{qna_no}
+	</update>
+	
+	<insert id="insertQnaDeleteAdmin" parameterType="QnaManagementVO">
+	insert into qna_gen_delete(qna_no, reaseon)
+	values(#{qna_no}, #{reaseon})
+	</insert>
+	
+	
+	<select id="selectPreNQna" resultType ="int">
+	select count(qna_no)
+	from qna_gen_q 
+	where status = 'N'
+	</select>
+	
+	<select id="selectPreYQna" resultType ="int">
+	select count(qna_no)
+	from qna_gen_q
+	where status = 'Y'
+	</select>
+	
+	<select id="selectPreDQna" resultType ="int">
+	select count(qna_no)
+	from qna_gen_q
+	where status = 'D'
+	</select>
+	
+	
+	
+	<select id="selectNewQna" resultType ="int">
+	select count(qna_no)
+    from qna_gen_q
+    where TRUNC(q_date) = TRUNC(SYSDATE) 
+    and status = 'N'
+	</select>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</mapper>

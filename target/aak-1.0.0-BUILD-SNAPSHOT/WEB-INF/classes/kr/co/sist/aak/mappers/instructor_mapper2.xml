@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.sist.aak.instructor2">
+	
+	 	<select id="select_studentList_all" resultType="StudentListDomain">
+		SELECT si.STD_ID, si.NAME,ss.SUB_CODE, sj.SUB_TITLE
+		FROM STD_INFO si
+		JOIN STD_SUBJECT ss ON si.STD_ID = ss.STD_ID
+		JOIN SUBJECT_CODE sj ON ss.SUB_CODE = sj.SUB_CODE
+       
+	</select>
+
+<select id="searchid" parameterType="String" resultType="StudentListDomain">
+     SELECT si.STD_ID, si.NAME, ss.SUB_CODE
+    FROM STD_INFO si
+    JOIN STD_SUBJECT ss ON si.STD_ID = ss.STD_ID
+     WHERE si.STD_ID LIKE '%' || #{STD_ID} || '%'
+</select>
+	
+	<select id="searchsubcode" parameterType="String" resultType="StudentListDomain">
+    SELECT si.STD_ID, si.NAME,ss.SUB_CODE, sj.SUB_TITLE
+		FROM STD_INFO si
+		JOIN STD_SUBJECT ss ON si.STD_ID = ss.STD_ID
+		JOIN SUBJECT_CODE sj ON ss.SUB_CODE = sj.SUB_CODE
+		WHERE sj.SUB_TITLE LIKE '%' || #{SUB_TITLE} || '%'
+</select>
+	
+<select id="searchname" parameterType="String" resultType="StudentListDomain">
+    SELECT si.STD_ID, si.NAME, ss.SUB_CODE, sj.SUB_TITLE
+    FROM STD_INFO si
+    JOIN STD_SUBJECT ss ON si.STD_ID = ss.STD_ID
+    JOIN SUBJECT_CODE sj ON ss.SUB_CODE = sj.SUB_CODE
+    WHERE si.NAME LIKE '%' || #{NAME} || '%'
+</select>	
+	
+</mapper>

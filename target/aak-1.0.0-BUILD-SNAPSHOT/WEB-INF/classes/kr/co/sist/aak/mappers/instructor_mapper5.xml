@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.sist.aak.instructor">
+
+<!-- 강의관리 리스트 -->
+<!-- 전체 강의 리스트 -->
+<select id="lectureList" resultType="lectureDomain" parameterType="String">
+SELECT s.*, sr.reason, sc.sub_title
+FROM subject s
+JOIN sub_instructor si ON s.sub_code = si.sub_code
+JOIN subject_code sc ON s.sub_code = sc.sub_code
+LEFT JOIN sub_reject sr ON s.sub_code = sr.sub_code AND s.status = 'N'
+</select>
+
+<!-- 강의상세 -->
+<!-- 
+<select id="lectureDetail" resultType="lectureDomain">
+select *
+from subject
+where sub_code=#{sub_code}
+</select> -->
+
+<!-- 승인여부에 따른 검색 -->
+<select id="searchApprove" resultType="lectureDomain">
+select *
+from subject
+where status=#{status}
+</select>
+
+<!-- 강의상세 -->
+<select id="lectureDetail" resultType="lectureDomain" parameterType="String">
+select lt.sub_code ,lt.lec_code ,lt.title ,lt.time as sec_time ,lt.status ,lt.f_name 
+		,lt.lec_explain,sc.cat_code,lt.create_date, s.total_no, s.total_time, s.image
+from  LECTURE  lt
+join  subject_code sc on lt.sub_code = sc.sub_code
+join  CAT_CODE cc on sc.cat_code = cc.cat_code
+join  subject s on s.sub_code = sc.sub_code 
+where 1=1
+and lt.sub_code=#{sub_code}
+order by lt.create_date
+</select>
+
+<!-- 과목명 검색 -->
+<select id="searchTitle" resultType="lectureDomain" parameterType="String">
+select * 
+from subject
+where sub_title like '%'||#{sub_title}||'%'
+</select>
+
+<!-- 과목공지사항 -->	
+<select id="searchNotice" resultType="NoticeDomain" parameterType="String">
+select noti_no,title,write_date
+from inst_notice
+where status=#{status}
+</select>	
+	
+</mapper>
