@@ -29,7 +29,7 @@ public class HomeController {
 	
 	@GetMapping("/admin_index.do")
 	public String adminMain() {
-		return "/admin/imp_login";
+		return "/admin/login";
 	}
 	@GetMapping("/instructor_index.do")
 	public String instructorMain() {

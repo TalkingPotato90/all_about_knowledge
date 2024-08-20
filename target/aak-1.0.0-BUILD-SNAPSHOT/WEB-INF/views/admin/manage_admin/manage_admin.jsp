@@ -30,15 +30,15 @@ zoom:0.6;
 	http://www.tooplate.com/view/2108-dashboard
 
     -->
-     <link rel="stylesheet" href="http://localhost/all_about_knowledge/front/admin/css/fullcalendar.min.css">
+     <link rel="stylesheet" href="http://localhost:8080/all_about_knowledge/front/admin/css/fullcalendar.min.css">
     <!-- https://fullcalendar.io/ -->
-     <link rel="stylesheet" href="http://localhost/all_about_knowledge/front/admin/css/family.css">
+     <link rel="stylesheet" href="http://localhost:8080/all_about_knowledge/front/admin/css/family.css">
     <!-- https://fonts.google.com/specimen/Open+Sans -->
-    <link rel="stylesheet" href="http://localhost/all_about_knowledge/front/admin/css/fontawesome.min.css">
+    <link rel="stylesheet" href="http://localhost:8080/all_about_knowledge/front/admin/css/fontawesome.min.css">
     <!-- https://fontawesome.com/ -->
-    <link rel="stylesheet" href="http://localhost/all_about_knowledge/front/admin/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://localhost:8080/all_about_knowledge/front/admin/css/bootstrap.min.css">
     <!-- https://getbootstrap.com/ -->
-    <link rel="stylesheet" href="http://localhost/all_about_knowledge/front/admin/css/tooplate.css">
+    <link rel="stylesheet" href="http://localhost:8080/all_about_knowledge/front/admin/css/tooplate.css">
 
 </head>
 
@@ -215,7 +215,7 @@ zoom:0.6;
         	var adminId = '<%= session.getAttribute("adminid") %>';
             
             if (adminId == '' || adminId == 'null') {
-                location.href = 'http://localhost/all_about_knowledge/admin_index.do';
+                location.href = 'http://localhost:8080/all_about_knowledge/admin_index.do';
             }
         	 const tab=document.querySelector('.tab');
          $("#btnunfold").click(function(){

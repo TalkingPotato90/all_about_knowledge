@@ -69,7 +69,7 @@ Desc : 사용자(학생)의 마이페이지 강의 재생
 				  <div class="ui active inverted dimmer">
 				    <div class="ui large text loader">Loading</div>
 				  </div>
-					<video src="http://localhost/all_about_knowledge/upload/${fileName}" controls> </video>
+					<video src="http://localhost:8080/all_about_knowledge/upload/${fileName}" controls> </video>
 				</div>
 			</div>
 		</article>

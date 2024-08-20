@@ -39,8 +39,8 @@
 				<div class="three wide column">
 					<h4>고객센터</h4>
 					<div class="ui inverted link list">
-						<a href="http://localhost/all_about_knowledge/site_notice.do" class="item">공지사항</a> 
-						<a href="http://localhost/all_about_knowledge/site_qna.do" class="item">문의사항</a> 
+						<a href="http://localhost:8080/all_about_knowledge/site_notice.do" class="item">공지사항</a>
+						<a href="http://localhost:8080/all_about_knowledge/site_qna.do" class="item">문의사항</a>
 					</div>
 				</div>
 				<div class="three wide column">
@@ -60,8 +60,8 @@
         <div class="three wide column" style="color:black;">
           <h4 class="ui inverted header">고객센터</h4>
           <div class="ui inverted link list">
-            <a href="http://localhost/all_about_knowledge/site_notice.do" class="item" style="color:black;">공지사항</a>
-            <a href="http://localhost/all_about_knowledge/site_qna.do" class="item" style="color:black;">문의사항</a>
+            <a href="http://localhost:8080/all_about_knowledge/site_notice.do" class="item" style="color:black;">공지사항</a>
+            <a href="http://localhost:8080/all_about_knowledge/site_qna.do" class="item" style="color:black;">문의사항</a>
             <a href="#" class="item" style="color:black;">회사소개</a>
           </div>
         </div>

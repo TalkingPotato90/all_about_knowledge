@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="refresh" content="0;http://localhost/all_about_knowledge/instructor/loginProcess.do"/>
+<meta http-equiv="refresh" content="0;http://localhost:8080/all_about_knowledge/instructor/loginProcess.do"/>
 <title>Insert title here</title>
 
 <script type="text/javascript">

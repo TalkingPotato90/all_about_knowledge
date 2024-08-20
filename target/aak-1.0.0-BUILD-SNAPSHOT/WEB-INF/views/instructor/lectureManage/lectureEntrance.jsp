@@ -34,7 +34,7 @@
 
 <!-- Custom styles for this template-->
 <link
-	href="http://localhost/all_about_knowledge/resources/css/sb-admin-2.min.css"
+	href="http://localhost:8080/all_about_knowledge/resources/css/sb-admin-2.min.css"
 	rel="stylesheet">
 
 <!-- Bootstrap CSS -->
@@ -278,7 +278,7 @@
 							role="button" data-toggle="dropdown" aria-haspopup="true"
 							aria-expanded="false"> <img
 								class="img-profile rounded-circle"
-								src="http://localhost/all_about_knowledge/resources/img/profile.jpg">
+								src="http://localhost:8080/all_about_knowledge/resources/img/profile.jpg">
 								<span class="mr-2 d-none d-lg-inline text-gray-600 small" style="padding-left: 20px; font-size:15px">logout</span>
 						</a> 오른쪽 상단 이미지 클릭 메뉴 Dropdown - User Information  <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
@@ -308,7 +308,7 @@
 								style="width: 100%;">
 								<div>
 									<img
-										src="http://localhost/all_about_knowledge/resources/img/%EA%B0%95%EC%9D%98%EC%8D%B8%EB%84%A4%EC%9D%BC.png">
+										src="http://localhost:8080/all_about_knowledge/resources/img/%EA%B0%95%EC%9D%98%EC%8D%B8%EB%84%A4%EC%9D%BC.png">
 								</div>
 							<div id="lec_info" class="d-flex flex-column "
 										style="margin-left:30px">
@@ -417,17 +417,17 @@
 
 			<!-- Bootstrap core JavaScript-->
 			<script
-				src="http://localhost/all_about_knowledge/resources/vendor/jquery/jquery.min.js"></script>
+				src="http://localhost:8080/all_about_knowledge/resources/vendor/jquery/jquery.min.js"></script>
 			<script
-				src="http://localhost/all_about_knowledge/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+				src="http://localhost:8080/all_about_knowledge/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 			<!-- Core plugin JavaScript-->
 			<script
-				src="http://localhost/all_about_knowledge/resources/vendor/jquery-easing/jquery.easing.min.js"></script>
+				src="http://localhost:8080/all_about_knowledge/resources/vendor/jquery-easing/jquery.easing.min.js"></script>
 
 			<!-- Custom scripts for all pages-->
 			<script
-				src="http://localhost/all_about_knowledge/resources/js/sb-admin-2.min.js"></script>
+				src="http://localhost:8080/all_about_knowledge/resources/js/sb-admin-2.min.js"></script>
 
 </body>
 </html>

@@ -56,11 +56,11 @@ width: 15vw;height: auto;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>All_About_Knowledge</title>
-    <link rel="stylesheet" href="http://localhost/all_about_knowledge/front/admin/css/fullcalendar.min.css">
-    <link rel="stylesheet" href="http://localhost/all_about_knowledge/front/admin/css/family.css">
-    <link rel="stylesheet" href="http://localhost/all_about_knowledge/front/admin/css/fontawesome.min.css">
-    <link rel="stylesheet" href="http://localhost/all_about_knowledge/front/admin/css/bootstrap.min.css">
-    <link rel="stylesheet" href="http://localhost/all_about_knowledge/front/admin/css/tooplate.css">
+    <link rel="stylesheet" href="http://localhost:8080/all_about_knowledge/front/admin/css/fullcalendar.min.css">
+    <link rel="stylesheet" href="http://localhost:8080/all_about_knowledge/front/admin/css/family.css">
+    <link rel="stylesheet" href="http://localhost:8080/all_about_knowledge/front/admin/css/fontawesome.min.css">
+    <link rel="stylesheet" href="http://localhost:8080/all_about_knowledge/front/admin/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://localhost:8080/all_about_knowledge/front/admin/css/tooplate.css">
 </head>
 <body id="reportsPage">
     <div class="" id="home">
@@ -254,7 +254,7 @@ width: 15vw;height: auto;
 		 var adminId = '<%= session.getAttribute("adminid") %>';
          
          if (adminId == '' || adminId == 'null') {
-             location.href = 'http://localhost/all_about_knowledge/admin_index.do';
+             location.href = 'http://localhost:8080/all_about_knowledge/admin_index.do';
          }
 		 
 		    let previousQnaCount = null;

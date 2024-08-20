@@ -28,7 +28,7 @@
 
 <!-- Custom styles for this template-->
 <link
-	href="http://localhost/all_about_knowledge/resources/css/sb-admin-2.min.css"
+	href="http://localhost:8080/all_about_knowledge/resources/css/sb-admin-2.min.css"
 	rel="stylesheet">
 
 </head>
@@ -57,7 +57,7 @@
                 </div>
                 <div class="sidebar-brand-text mx-3" style="font-size: 20px;">
                 <a class="sidebar-brand d-flex align-items-center justify-content-center" 
-            href="http://localhost/all_about_knowledge/instructor/instructor_home.do">AAk 강사메인</a></div>
+            href="http://localhost:8080/all_about_knowledge/instructor/instructor_home.do">AAk 강사메인</a></div>
             </a>
 
             <!-- Divider -->
@@ -65,25 +65,25 @@
 
             <!-- 탭 메뉴 -->
             <li class="nav-item active">
-                <a class="nav-link" href="http://localhost/all_about_knowledge/instructor/lectureManage/lectureList.do">  
+                <a class="nav-link" href="http://localhost:8080/all_about_knowledge/instructor/lectureManage/lectureList.do">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span style="font-size: 18px;">강의관리</span></a>
             </li>
             
              <li class="nav-item active">
-                <a class="nav-link" href="http://localhost/all_about_knowledge/instructor/lectureManage/lectureApply.do">
+                <a class="nav-link" href="http://localhost:8080/all_about_knowledge/instructor/lectureManage/lectureApply.do">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span style="font-size: 18px;">강의신청</span></a>
             </li>
             
             <li class="nav-item active">
-                <a class="nav-link" href="http://localhost/all_about_knowledge/instructor/qna/qnaList.do">
+                <a class="nav-link" href="http://localhost:8080/all_about_knowledge/instructor/qna/qnaList.do">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span style="font-size: 18px;">문의사항</span></a>
             </li>
             
             <li class="nav-item active">
-                <a class="nav-link" href="http://localhost/all_about_knowledge/instructor/studentList.do">
+                <a class="nav-link" href="http://localhost:8080/all_about_knowledge/instructor/studentList.do">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span style="font-size: 18px;">수강생 관리</span>
                     </a>
@@ -191,12 +191,12 @@
 
 				<!-- Nav Item - User Information -->
 				<li class="nav-item dropdown no-arrow">
-				<a class="nav-link dropdown-toggle d-flex align-items-center" href="http://localhost/all_about_knowledge/instructor_index.do"
+				<a class="nav-link dropdown-toggle d-flex align-items-center" href="http://localhost:8080/all_about_knowledge/instructor_index.do"
 					id="userDropdown" role="button" aria-haspopup="true" aria-expanded="false"> 
 					<c:if test="${instd.image }.equals('')">
 					
 					<img class="img-profile rounded-circle"
-						src="http://localhost/all_about_knowledge/upload/${instd.image }"
+						src="http://localhost:8080/all_about_knowledge/upload/${instd.image }"
 						style="margin-right: 10px;"> 
 					</c:if>  
 						<span class="mr-2 d-none d-lg-inline text-gray-600 small" style="font-size: 15px">Logout</span>
@@ -370,17 +370,17 @@ document.getElementById('searchInput').addEventListener('keypress', function(e) 
 
   <!-- Bootstrap core JavaScript-->
 			<script
-				src="http://localhost/all_about_knowledge/resources/vendor/jquery/jquery.min.js"></script>
+				src="http://localhost:8080/all_about_knowledge/resources/vendor/jquery/jquery.min.js"></script>
 			<script
-				src="http://localhost/all_about_knowledge/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+				src="http://localhost:8080/all_about_knowledge/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 			<!-- Core plugin JavaScript-->
 			<script
-				src="http://localhost/all_about_knowledge/resources/vendor/jquery-easing/jquery.easing.min.js"></script>
+				src="http://localhost:8080/all_about_knowledge/resources/vendor/jquery-easing/jquery.easing.min.js"></script>
 
 			<!-- Custom scripts for all pages-->
 			<script
-				src="http://localhost/all_about_knowledge/resources/js/sb-admin-2.min.js"></script>
+				src="http://localhost:8080/all_about_knowledge/resources/js/sb-admin-2.min.js"></script>
 
 </body>
 

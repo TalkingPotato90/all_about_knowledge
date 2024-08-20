@@ -22,9 +22,9 @@
 <!-- Semantic UI CSS -->
 <link rel="stylesheet" type="text/css"
 	href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
-	<link rel="stylesheet" href="http://localhost/all_about_knowledge/front/student/css/datatables.min.css">
+	<link rel="stylesheet" href="http://localhost:8080/all_about_knowledge/front/student/css/datatables.min.css">
 	<!-- <script type="text/javascript" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script> -->
-    <!-- <link rel="stylesheet" href="http://localhost/all_about_knowledge/front/admin/css/datatables.datatables.css"> -->
+    <!-- <link rel="stylesheet" href="http://localhost:8080/all_about_knowledge/front/admin/css/datatables.datatables.css"> -->
 <style type="text/css">
 .search-container {
 	display: flex;

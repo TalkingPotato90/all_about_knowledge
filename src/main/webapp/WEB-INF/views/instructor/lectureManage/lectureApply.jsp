@@ -40,7 +40,7 @@
 
 <!-- Custom styles for this template-->
 <link
-	href="http://localhost/all_about_knowledge/resources/css/sb-admin-2.min.css"
+	href="http://localhost:8080/all_about_knowledge/resources/css/sb-admin-2.min.css"
 	rel="stylesheet">
 
 <!-- Bootstrap CSS -->
@@ -57,7 +57,7 @@
          $('#cat_code').val(selectCategory);
          var param = { "subCode": selectCategory };
          $.ajax({
-             url: "http://localhost/all_about_knowledge/instructor/lectureManage/subtitle.do",
+             url: "http://localhost:8080/all_about_knowledge/instructor/lectureManage/subtitle.do",
              type: "GET",
              data: param,
              dataType: "json",
@@ -92,7 +92,7 @@
          var imageName="";
          //강의썸네일 전송
          $.ajax({
-             url: "http://localhost/all_about_knowledge/instructor/lectureManage/lectureApply_result.do",
+             url: "http://localhost:8080/all_about_knowledge/instructor/lectureManage/lectureApply_result.do",
              type: "POST",
              contentType: false,
              processData: false,
@@ -133,7 +133,7 @@
         
 	 	 // 강의 상세 내용만 보내기
          $.ajax({
-             url: "http://localhost/all_about_knowledge/instructor/lectureManage/lecInfo.do",
+             url: "http://localhost:8080/all_about_knowledge/instructor/lectureManage/lecInfo.do",
              type: "post",
              data: param,
              dataType: "json",
@@ -190,7 +190,7 @@
      
      //강의파일 전송
      $.ajax({
-         url: "http://localhost/all_about_knowledge/instructor/lectureManage/lectureApply_result.do",
+         url: "http://localhost:8080/all_about_knowledge/instructor/lectureManage/lectureApply_result.do",
          type: "POST",
          contentType: false,
          processData: false,
@@ -223,7 +223,7 @@
     
  	 // 강의 상세 내용만 보내기
      $.ajax({
-         url: "http://localhost/all_about_knowledge/instructor/lectureManage/leclesson.do",
+         url: "http://localhost:8080/all_about_knowledge/instructor/lectureManage/leclesson.do",
          type: "post",
          data: param,
          dataType: "json",
@@ -271,7 +271,7 @@
          var formData = new FormData(this);
 
          $.ajax({
-             url: "http://localhost/all_about_knowledge/instructor/lectureManage/lectureApply_result.do",
+             url: "http://localhost:8080/all_about_knowledge/instructor/lectureManage/lectureApply_result.do",
              type: "POST",
              contentType: false,
              processData: false,
@@ -464,17 +464,17 @@
 	</div>
 	<!-- Bootstrap core JavaScript-->
 	<script
-		src="http://localhost/all_about_knowledge/resources/vendor/jquery/jquery.min.js"></script>
+		src="http://localhost:8080/all_about_knowledge/resources/vendor/jquery/jquery.min.js"></script>
 	<script
-		src="http://localhost/all_about_knowledge/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+		src="http://localhost:8080/all_about_knowledge/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 	<!-- Core plugin JavaScript-->
 	<script
-		src="http://localhost/all_about_knowledge/resources/vendor/jquery-easing/jquery.easing.min.js"></script>
+		src="http://localhost:8080/all_about_knowledge/resources/vendor/jquery-easing/jquery.easing.min.js"></script>
 
 	<!-- Custom scripts for all pages-->
 	<script
-		src="http://localhost/all_about_knowledge/resources/js/sb-admin-2.min.js"></script>
+		src="http://localhost:8080/all_about_knowledge/resources/js/sb-admin-2.min.js"></script>
 
 
 </body>

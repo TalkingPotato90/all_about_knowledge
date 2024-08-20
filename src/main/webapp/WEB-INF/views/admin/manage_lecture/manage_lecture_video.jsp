@@ -12,7 +12,7 @@
 
     <script>
         // 동영상 URL 설정
-        var videoUrl = "http://localhost/all_about_knowledge/upload/sample.mp4"; //sample.mp4는 됨
+        var videoUrl = "http://localhost:8080/all_about_knowledge/upload/sample.mp4"; //sample.mp4는 됨
  
         document.getElementById('videoPlayer').querySelector('source').src = videoUrl;
         document.getElementById('videoPlayer').load(); // 동영상 재생 준비

@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <title>아이디 찾기</title>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-<link href="http://localhost/all_about_knowledge/front/student/css/login_join.css" rel="stylesheet">
+<link href="http://localhost:8080/all_about_knowledge/front/student/css/login_join.css" rel="stylesheet">
 </head>
 <body>
 <div class="container">

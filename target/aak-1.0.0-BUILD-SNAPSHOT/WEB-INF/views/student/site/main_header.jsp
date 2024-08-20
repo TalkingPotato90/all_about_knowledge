@@ -31,10 +31,10 @@
     <img src="/all_about_knowledge/front/student/icon/title.svg" class="nav_logo_svg" id="home"/>
 </div>
   <div class="right menu">
-    <a class="item" id="btnHome" href="http://localhost/all_about_knowledge/mypage/mypage_home.do">마이페이지</a>
-    <a class="item" id="btnLecture" href="http://localhost/all_about_knowledge/lecture_list.do">개설강좌</a>
+    <a class="item" id="btnHome" href="http://localhost:8080/all_about_knowledge/mypage/mypage_home.do">마이페이지</a>
+    <a class="item" id="btnLecture" href="http://localhost:8080/all_about_knowledge/lecture_list.do">개설강좌</a>
     <sec:authorize access="isAnonymous()">
-        <a class="item" id="login" href="http://localhost/all_about_knowledge/student/login.do">로그인</a>
+        <a class="item" id="login" href="http://localhost:8080/all_about_knowledge/student/login.do">로그인</a>
     </sec:authorize>
     <sec:authorize access="isAuthenticated()">
         <div class="item">

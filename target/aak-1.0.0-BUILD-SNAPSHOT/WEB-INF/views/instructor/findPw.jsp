@@ -59,7 +59,7 @@
 	});//ready
 </script>
 
-<form action="http://localhost/all_about_knowledge/instructor/findPw.do" method="post" id="findPwFrm" class="text-center">
+<form action="http://localhost:8080/all_about_knowledge/instructor/findPw.do" method="post" id="findPwFrm" class="text-center">
   <!-- 아이디 -->
   <div data-mdb-input-init class="form-outline mb-4 mx-auto" style="max-width: 400px; padding-top:20px">
     <input type="text" id="inputId" class="form-control" placeholder="아이디를 입력해주세요" />

@@ -19,7 +19,7 @@
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="http://localhost/all_about_knowledge/resources/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="http://localhost:8080/all_about_knowledge/resources/css/sb-admin-2.min.css" rel="stylesheet">
 
 	<style>
 	   .notice-container {
@@ -54,15 +54,15 @@
     <div class="bg-white tm-block" style="width: 100% ">
   <div class="mb-3 d-flex align-items-center justify-content-center" style="width: 100%;">
     <div style="flex: 1; text-align: center;">
-    <%-- http://localhost/all_about_knowledge/upload/${instd.image } --%>
-       <%--  <img src="http://localhost/all_about_knowledge/upload/${lecDetail.image }"> --%>
-       <img src="http://localhost/all_about_knowledge/upload/%EA%B0%95%EC%9D%98%EC%8D%B8%EB%84%A4%EC%9D%BC.png"/>
+    <%-- http://localhost:8080/all_about_knowledge/upload/${instd.image } --%>
+       <%--  <img src="http://localhost:8080/all_about_knowledge/upload/${lecDetail.image }"> --%>
+       <img src="http://localhost:8080/all_about_knowledge/upload/%EA%B0%95%EC%9D%98%EC%8D%B8%EB%84%A4%EC%9D%BC.png"/>
     </div>
     <div id="lec_info" class="d-flex flex-column" style="flex: 1;">
         <div class="mb-3">
         <input type="hidden" value="${lecDetail.lec_code}" name="lec_code" />
             <label class="form-label" style="font-size: 18px">강의명      <c:out value="${lecDetail.title}"/></label>
-            <a href="http://localhost/all_about_knowledge/instructor/lectureManage/lectureEntrance.do">
+            <a href="http://localhost:8080/all_about_knowledge/instructor/lectureManage/lectureEntrance.do">
                 <input type="button" value="강의실 입장" class="btn btn-light btn-sm" style="margin-left:20px; font-size: 18px">
             </a>
         </div>
@@ -145,14 +145,14 @@
 				<jsp:include page="../common/instructor_footer.jsp"></jsp:include>	
 	
 	<!-- Bootstrap core JavaScript-->
-    <script src="http://localhost/all_about_knowledge/resources/vendor/jquery/jquery.min.js"></script>
-    <script src="http://localhost/all_about_knowledge/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="http://localhost:8080/all_about_knowledge/resources/vendor/jquery/jquery.min.js"></script>
+    <script src="http://localhost:8080/all_about_knowledge/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="http://localhost/all_about_knowledge/resources/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="http://localhost:8080/all_about_knowledge/resources/vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="http://localhost/all_about_knowledge/resources/js/sb-admin-2.min.js"></script>
+    <script src="http://localhost:8080/all_about_knowledge/resources/js/sb-admin-2.min.js"></script>
 
 	
 </body>

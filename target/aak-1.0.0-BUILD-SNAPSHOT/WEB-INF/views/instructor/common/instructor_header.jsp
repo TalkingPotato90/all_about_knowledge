@@ -35,7 +35,7 @@
 	});//ready
 	
 	function logout() {
-		window.location.href = "0;http://localhost/all_about_knowledge/instructor/loginProcess.do";
+		window.location.href = "0;http://localhost:8080/all_about_knowledge/instructor/loginProcess.do";
 	}
 </script>
 </head>
@@ -134,12 +134,12 @@
 
 				<!-- Nav Item - User Information -->
 				<li class="nav-item dropdown no-arrow">
-				<a class="nav-link dropdown-toggle d-flex align-items-center" href="http://localhost/all_about_knowledge/instructor_index.do"
+				<a class="nav-link dropdown-toggle d-flex align-items-center" href="http://localhost:8080/all_about_knowledge/instructor_index.do"
 					id="userDropdown" role="button" aria-haspopup="true" aria-expanded="false"> 
 					<%-- <c:if test="${instd.image }.equals('')"> --%>
 					
 					<img class="img-profile rounded-circle"
-						src="http://localhost/all_about_knowledge/upload/${instd.image }"
+						src="http://localhost:8080/all_about_knowledge/upload/${instd.image }"
 						style="margin-right: 10px;" onclick="return logout();"> 
 						
 					<strong style="color: black; margin-right:20px;"><c:out value="${sessionScope.inst_id }"/>님</strong>

@@ -9,12 +9,12 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/all_about_knowledge/favicon.png">
         
 <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-<link href="http://localhost/all_about_knowledge/front/student/css/login_join.css" rel="stylesheet">
+<link href="http://localhost:8080/all_about_knowledge/front/student/css/login_join.css" rel="stylesheet">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<script src="http://localhost/all_about_knowledge/front/student/js/login.js"></script>
+<script src="http://localhost:8080/all_about_knowledge/front/student/js/login.js"></script>
 
 </head>
 <body>
@@ -26,7 +26,7 @@
          <!-- Brand Box -->
          <div class="col-sm-6 brand">
             <img src="/all_about_knowledge/favicon.png" class="logo" alt="">
-            <img src="http://localhost/all_about_knowledge/front/student/icon/title.svg" class="logo-title" alt="">
+            <img src="http://localhost:8080/all_about_knowledge/front/student/icon/title.svg" class="logo-title" alt="">
             
             <div class="heading">
                <h2>AAK</h2>

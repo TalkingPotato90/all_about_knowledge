@@ -50,7 +50,7 @@ public class AdminLoginService {
 			if(ald.getQna_management().equals("Y")) {
 				sb.append("<br/>");
 			}
-			sb.deleteCharAt(sb.lastIndexOf(" <br/> "));
+//			sb.deleteCharAt(sb.lastIndexOf(" <br/> "));
 			ald.setPermissions(sb.toString());
 			
 		}catch (PersistenceException e) {

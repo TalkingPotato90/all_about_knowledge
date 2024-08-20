@@ -65,11 +65,11 @@
 					class="row d-flex justify-content-center align-items-center h-100">
 					<div class="col-md-9 col-lg-6 col-xl-5">
 						<img
-							src="http://localhost/all_about_knowledge/resources/img/%EB%A1%9C%EA%B7%B8%EC%9D%B8%EC%9D%B4%EB%AF%B8%EC%A7%80.png"
+							src="http://localhost:8080/all_about_knowledge/resources/img/%EB%A1%9C%EA%B7%B8%EC%9D%B8%EC%9D%B4%EB%AF%B8%EC%A7%80.png"
 							class="img-fluid" alt="Sample image">
 					</div>
 					<div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-						<form action="http://localhost/all_about_knowledge/instructor/loginProcess.do" method="post" id="loginForm">
+						<form action="http://localhost:8080/all_about_knowledge/instructor/loginProcess.do" method="post" id="loginForm">
 							
 							<!-- ID input -->
 							<div data-mdb-input-init class="form-outline mb-4">
@@ -90,9 +90,9 @@
 									<input class="form-check-input me-2" type="checkbox" value=""
 										id="form2Example3" /> <label class="form-check-label"
 										for="form2Example3"> Remember me </label>
-								</div> --> <!-- http://localhost/all_about_knowledge/instructor/findPw.do -->
+								</div> --> <!-- http://localhost:8080/all_about_knowledge/instructor/findPw.do -->
 								
-								<a href="http://localhost/all_about_knowledge/instructor/findPw.do">Forgot password?</a>
+								<a href="http://localhost:8080/all_about_knowledge/instructor/findPw.do">Forgot password?</a>
 							</div>
 
 							<div class="text-center text-lg-start mt-4 pt-2">

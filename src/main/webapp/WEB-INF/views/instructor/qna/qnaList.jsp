@@ -33,7 +33,7 @@
 
 <!-- Custom styles for this template-->
 <link
-	href="http://localhost/all_about_knowledge/resources/css/sb-admin-2.min.css"
+	href="http://localhost:8080/all_about_knowledge/resources/css/sb-admin-2.min.css"
 	rel="stylesheet">
 
 </head>
@@ -134,17 +134,17 @@
 
 			<!-- Bootstrap core JavaScript-->
 			<script
-				src="http://localhost/all_about_knowledge/resources/vendor/jquery/jquery.min.js"></script>
+				src="http://localhost:8080/all_about_knowledge/resources/vendor/jquery/jquery.min.js"></script>
 			<script
-				src="http://localhost/all_about_knowledge/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+				src="http://localhost:8080/all_about_knowledge/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 			<!-- Core plugin JavaScript-->
 			<script
-				src="http://localhost/all_about_knowledge/resources/vendor/jquery-easing/jquery.easing.min.js"></script>
+				src="http://localhost:8080/all_about_knowledge/resources/vendor/jquery-easing/jquery.easing.min.js"></script>
 
 			<!-- Custom scripts for all pages-->
 			<script
-				src="http://localhost/all_about_knowledge/resources/js/sb-admin-2.min.js"></script>
+				src="http://localhost:8080/all_about_knowledge/resources/js/sb-admin-2.min.js"></script>
 
 </body>
 </html>

@@ -19,7 +19,7 @@
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="http://localhost/all_about_knowledge/resources/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="http://localhost:8080/all_about_knowledge/resources/css/sb-admin-2.min.css" rel="stylesheet">
 
 	<!-- Bootstrap CSS -->
 	<!-- <link href="http://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LJ3XOMiYvVRy4X4H6YphqQLzzsUz1+cPTnWBXOpacAdMQuPBM0dAVPvcjFpzeFnC" crossorigin="anonymous"> -->
@@ -123,14 +123,14 @@ $(function () {
 			
 	
 	<!-- Bootstrap core JavaScript-->
-    <script src="http://localhost/all_about_knowledge/resources/vendor/jquery/jquery.min.js"></script>
-    <script src="http://localhost/all_about_knowledge/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="http://localhost:8080/all_about_knowledge/resources/vendor/jquery/jquery.min.js"></script>
+    <script src="http://localhost:8080/all_about_knowledge/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="http://localhost/all_about_knowledge/resources/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="http://localhost:8080/all_about_knowledge/resources/vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="http://localhost/all_about_knowledge/resources/js/sb-admin-2.min.js"></script>
+    <script src="http://localhost:8080/all_about_knowledge/resources/js/sb-admin-2.min.js"></script>
 
 
 	

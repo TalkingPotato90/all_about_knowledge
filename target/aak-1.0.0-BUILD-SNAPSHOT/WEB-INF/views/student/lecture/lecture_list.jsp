@@ -189,7 +189,7 @@ function searchSubcat(cat_code, outputId) {
 				<div class="card" id="card">
 					<a href="user_lecture_detail.do?sub_code=${listLecture.sub_code}"
 						class="image"> <img
-						src="http://localhost/all_about_knowledge/upload/${ listLecture.image }"
+						src="http://localhost:8080/all_about_knowledge/upload/${ listLecture.image }"
 						class="card-img-top" alt="...">
 					</a>
 					<div class="content">

@@ -39,7 +39,7 @@
                 </div>
                 <div class="sidebar-brand-text mx-3" style="font-size: 25px;">
                 <a class="sidebar-brand d-flex align-items-center justify-content-center" 
-            href="http://localhost/all_about_knowledge/instructor/instructor_home.do">AAk 강사메인</a></div>
+            href="http://localhost:8080/all_about_knowledge/instructor/instructor_home.do">AAk 강사메인</a></div>
             </a>
 
             <!-- Divider -->
@@ -47,25 +47,25 @@
 
             <!-- 탭 메뉴 -->
             <li class="nav-item active">
-                <a class="nav-link" href="http://localhost/all_about_knowledge/instructor/lectureManage/lectureList.do">  
+                <a class="nav-link" href="http://localhost:8080/all_about_knowledge/instructor/lectureManage/lectureList.do">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span style="font-size: 18px;">강의관리</span></a>
             </li>
             
              <li class="nav-item active">
-                <a class="nav-link" href="http://localhost/all_about_knowledge/instructor/lectureManage/lectureApply.do">
+                <a class="nav-link" href="http://localhost:8080/all_about_knowledge/instructor/lectureManage/lectureApply.do">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span style="font-size: 18px;">강의신청</span></a>
             </li>
             
             <li class="nav-item active">
-                <a class="nav-link" href="http://localhost/all_about_knowledge/instructor/qna/qnaList.do">
+                <a class="nav-link" href="http://localhost:8080/all_about_knowledge/instructor/qna/qnaList.do">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span style="font-size: 18px;">문의사항</span></a>
             </li>
             
             <li class="nav-item active">
-                <a class="nav-link" href="http://localhost/all_about_knowledge/instructor/studentList.do">
+                <a class="nav-link" href="http://localhost:8080/all_about_knowledge/instructor/studentList.do">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span style="font-size: 18px;">수강생 관리</span>
                     </a>

@@ -16,15 +16,15 @@
 	http://www.tooplate.com/view/2108-dashboard
 
     -->
-    <link rel="stylesheet" href="http://localhost/all_about_knowledge/front/admin/css/fullcalendar.min.css">
+    <link rel="stylesheet" href="http://localhost:8080/all_about_knowledge/front/admin/css/fullcalendar.min.css">
     <!-- https://fullcalendar.io/ -->
-     <link rel="stylesheet" href="http://localhost/all_about_knowledge/front/admin/css/family.css">
+     <link rel="stylesheet" href="http://localhost:8080/all_about_knowledge/front/admin/css/family.css">
     <!-- https://fonts.google.com/specimen/Open+Sans -->
-    <link rel="stylesheet" href="http://localhost/all_about_knowledge/front/admin/css/fontawesome.min.css">
+    <link rel="stylesheet" href="http://localhost:8080/all_about_knowledge/front/admin/css/fontawesome.min.css">
     <!-- https://fontawesome.com/ -->
-    <link rel="stylesheet" href="http://localhost/all_about_knowledge/front/admin/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://localhost:8080/all_about_knowledge/front/admin/css/bootstrap.min.css">
     <!-- https://getbootstrap.com/ -->
-    <link rel="stylesheet" href="http://localhost/all_about_knowledge/front/admin/css/tooplate.css">
+    <link rel="stylesheet" href="http://localhost:8080/all_about_knowledge/front/admin/css/tooplate.css">
 
 
 <body id="reportsPage">
@@ -132,7 +132,7 @@
 					</div>
 					<label for="exampleFormControlTextarea1" class="form-label">공지사항 이미지</label>
 					<div class="card" style="width: 200px;height: 200px; margin: auto; margin-bottom: 50px; margin-top: 50px;">
-                            <img src="http://localhost/all_about_knowledge/upload/${ nmVO.image }"  class="card-img-top" alt="...">
+                            <img src="http://localhost:8080/all_about_knowledge/upload/${ nmVO.image }"  class="card-img-top" alt="...">
                             </div>
  						 <label for="exampleFormControlTextarea1" class="form-label">공지사항 내용</label>
   						<textarea class="form-control h-25" id="exampleFormControlTextarea1" rows="15" name ="content"><c:out value="${nmVO.content }"/> </textarea>
@@ -155,7 +155,7 @@
 		  var adminId = '<%= session.getAttribute("adminid") %>';
           
           if (adminId == '' || adminId == 'null') {
-              location.href = 'http://localhost/all_about_knowledge/admin_index.do';
+              location.href = 'http://localhost:8080/all_about_knowledge/admin_index.do';
           }
 		  history.back();
 	  })
