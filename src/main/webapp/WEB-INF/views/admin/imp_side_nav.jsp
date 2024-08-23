@@ -36,22 +36,22 @@
   <div class="item">
     <div class="header nav_header_font">교육과목관리</div>
     <div class="menu">
-      <a class="item nav_font rem_padding" id="edu_cat"><i class="folder icon_left"></i>교육카테고리리스트</a>
-      <a class="item nav_font rem_padding" id="sub_apply"><i class="tasks icon_left"></i>강의신청리스트</a>
+      <a class="item nav_font rem_padding" id="edu_cat"><i class="folder icon left attached"></i>교육카테고리리스트</a>
+      <a class="item nav_font rem_padding" id="sub_apply"><i class="tasks icon left attached"></i>강의신청리스트</a>
     </div>
   </div>
   <div class="item">
     <div class="header nav_header_font">개인정보관리</div>
     <div class="menu">
-      <a class="item nav_font rem_padding" id="std_info"><i class="info icon_left"></i>학생정보관리</a>
-      <a class="item nav_font rem_padding" id="inst_info"><i class="address book icon_left"></i>강사정보관리</a>
+      <a class="item nav_font rem_padding" id="std_info"><i class="info icon left attached"></i>학생정보관리</a>
+      <a class="item nav_font rem_padding" id="inst_info"><i class="address book icon left attached"></i>강사정보관리</a>
     </div>
   </div>
   <div class="item">
     <div class="header nav_header_font">커뮤니티관리</div>
     <div class="menu">
-      <a class="item nav_font rem_padding" id="qna_manage"><i class="question icon_left"></i>문의사항관리</a>
-      <a class="item nav_font rem_padding" id="notice_manage"><i class="pencil icon_left"></i>공지사항관리</a>
+      <a class="item nav_font rem_padding" id="qna_manage"><i class="question icon left attached"></i>문의사항관리</a>
+      <a class="item nav_font rem_padding" id="notice_manage"><i class="pencil icon left attached"></i>공지사항관리</a>
     </div>
   </div>
   

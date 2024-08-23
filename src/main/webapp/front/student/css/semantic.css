@@ -38869,9 +38869,3 @@ add2
 }
 .ui.menu:not(.vertical) .item {
   display: inline-flex;
-
-.ui.vertical.menu .item > i.icon_left {
-  width: 1.18em;
-  float: left;
-  margin: 0em 0em 0em 0.5em;
-}
