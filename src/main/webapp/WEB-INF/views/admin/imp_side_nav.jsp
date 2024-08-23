@@ -51,7 +51,7 @@
     <div class="header nav_header_font">커뮤니티관리</div>
     <div class="menu">
       <a class="item nav_font rem_padding" id="qna_manage"><i class="question icon left attached"></i>문의사항관리</a>
-      <a class="item nav_font rem_padding" id="notice_manage"><i class="pencil icon left attached"></i>공지사항관리</a>
+      <a class="item nav_font rem_padding" id="notice_manage"><i class="bullhorn icon left attached"></i>공지사항관리</a>
     </div>
   </div>
   

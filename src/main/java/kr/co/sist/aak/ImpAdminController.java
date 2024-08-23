@@ -15,7 +15,7 @@ public class ImpAdminController {
 
     @PostMapping("/imp_admin_login.do")
     public String impAdmin() {
-        return "/admin/imp_layout";
+        return "/admin/imp_index";
     }
 
 
