@@ -40,7 +40,7 @@
 
             <!-- Login Form -->
             <div class="login form-peice">
-               <form class="login-form" action="/all_about_knowledge/login" method="post">
+               <form class="login-form" action="imp_admin_login.do" method="post">
                   <div class="form-group">
                      <label for="userId">아이디</label>
                      <input type="text" name="username" id="userId" class="userId" required>
