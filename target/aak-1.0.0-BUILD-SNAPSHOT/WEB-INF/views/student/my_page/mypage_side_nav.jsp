@@ -41,17 +41,17 @@ Desc : 사용자(학생)의 마이페이지 좌측 네비게이션
   <div class="item">
     <div class="header nav_header_font">나의 강의실</div>
     <div class="menu">
-      <a class="item nav_font rem_padding" id="dashBoard"><img src="/all_about_knowledge/front/student/icon/dashboard.svg" class="nav_svg"/>대시보드</a>
-      <a class="item nav_font rem_padding" id="myLecture"><img src="/all_about_knowledge/front/student/icon/mylecture.svg" class="nav_svg"/>나의강의</a>
-      <a class="item nav_font rem_padding" id="interest"><img src="/all_about_knowledge/front/student/icon/interest.svg" class="nav_svg"/>관심강의</a>
-      <a class="item nav_font rem_padding"  id="question"><img src="/all_about_knowledge/front/student/icon/question.svg" class="nav_svg"/>나의문의</a>
+      <a class="item nav_font rem_padding" id="dashBoard"><i class="cubes icon"></i>대시보드</a>
+      <a class="item nav_font rem_padding" id="myLecture"><i class="video icon"></i>나의강의</a>
+      <a class="item nav_font rem_padding" id="interest"><i class="star icon"></i>관심강의</a>
+      <a class="item nav_font rem_padding"  id="question"><i class="question icon"></i>나의문의</a>
     </div>
   </div>
   <div class="item">
     <div class="header nav_header_font">개인정보관리</div>
     <div class="menu">
-      <a class="item nav_font rem_padding" id="myInfo"><img src="/all_about_knowledge/front/student/icon/my_info.svg" class="nav_svg"/>개인정보수정</a>
-      <a class="item nav_font rem_padding" id="withdraw"><img src="/all_about_knowledge/front/student/icon/exit.svg" class="nav_svg"/>탈퇴</a>
+      <a class="item nav_font rem_padding" id="myInfo"><i class="edit icon"></i>개인정보수정</a>
+      <a class="item nav_font rem_padding" id="withdraw"><i class="x icon"></i>탈퇴</a>
     </div>
   </div>
   

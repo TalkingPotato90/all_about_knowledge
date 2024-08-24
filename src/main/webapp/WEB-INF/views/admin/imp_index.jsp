@@ -31,43 +31,52 @@
 <!-- 컨텐츠 영역 -->
 <article class="my_article">
 <div class="mypage_content_div">
+    <div class="ui segment div_margin">
+        <div class="ui three cards trim_width">
+            <div class="card">
+                <div class="content">
+                    <a class="ui red ribbon label">학생</a>
+                    <div class="header header_align_top">오늘의 현황</div>
+                    <div class="description">
+                        <p>전체 회원 수 : </p>
+                        <p>신규 회원 수 : </p>
+                        <p>탈퇴 회원 수 : </p>
+                    </div>
+                </div>
+                <div class="content">
+                    <div class="header header_align_top">일별 신규 회원</div>
+                </div>
+            </div>
 
-    <div class="ui cards div_margin">
-        <div class="card">
-            <div class="content">
-                <a class="ui blue ribbon label">학생 정보</a>
-                <div class="header">오늘의 현황</div>
-                <div class="description">
-                    <p>전체 회원 수 : </p>
-                    <p>신규 회원 수 : </p>
-                    <p>탈퇴 회원 수 : </p>
+            <div class="card">
+                <div class="content">
+                    <a class="ui blue ribbon label">강사</a>
+                    <div class="header header_align_top">교육관리</div>
+                    <div class="description">
+                        <p>전체 강사 수 : </p>
+                        <p>전체 강좌 수 : </p>
+                        <p>개설 신청 수 : </p>
+                    </div>
                 </div>
-                <div class="ui divider"></div>
-                <div class="header">일별 신규 회원</div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="content">
-                <a class="ui green ribbon label">교육 현황</a>
-                <div class="header">교육 관리</div>
-                <div class="description">
-                    <p>전체 강사 수 : </p>
-                    <p>전체 강좌 수 : </p>
-                    <p>개설 신청 수 : </p>
+                <div class="content">
+                    <div class="header header_align_top">월별 신규 강의</div>
                 </div>
-                <div class="ui divider"></div>
-                <div class="header">월별 신규 강좌 수</div>
             </div>
-        </div>
-        <div class="card">
-            <div class="content">
-                <div class="header">문의 사항</div>
-                <div class="description">
-                    <p>미확인 문의 수 : </p>
+
+            <div class="card">
+                <div class="content">
+                    <a class="ui green ribbon label">커뮤니티</a>
+                    <div class="header header_align_top">문의사항</div>
+                    <div class="description">
+                        미확인 문의 수
+                    </div>
                 </div>
-                <div class="ui divider"></div>
-                <div class="header">오늘 들어온 문의사항</div>
+                <div class="content">
+                    <div class="header header_align_top">오늘 들어 온 문의사항</div>
+                </div>
             </div>
+
+
         </div>
     </div>
 
