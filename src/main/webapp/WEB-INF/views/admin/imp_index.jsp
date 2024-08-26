@@ -23,10 +23,10 @@
 </head>
 <body class="mypage">
 <!-- 사이드 네비게이션 바 -->
-<jsp:include page="imp_side_nav.jsp"></jsp:include>
+<jsp:include page="util/imp_side_nav.jsp"></jsp:include>
 
 <!-- 탑 네비게이션 바 -->
-<jsp:include page="imp_top_nav.jsp"></jsp:include>
+<jsp:include page="util/imp_top_nav.jsp"></jsp:include>
 
 <!-- 컨텐츠 영역 -->
 <article class="my_article">
