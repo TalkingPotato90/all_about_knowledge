@@ -17,7 +17,9 @@
 </style>
 <script type="text/javascript">
 	$(function() {
-	
+        $('#addCat').click(function(){
+            window.location.href = '${pageContext.request.contextPath}/imp_cat_add.do';
+        });
 	}); // ready
 </script>
 </head>
@@ -37,6 +39,7 @@
         <tr>
             <th></th>
             <th>상위카테고리코드</th>
+            <th>상위카테고리명</th>
             <th>카테고리코드</th>
             <th>카테고리명</th>
             <th>상태</th>
@@ -49,8 +52,9 @@
                     <input type="checkbox"> <label></label>
                 </div>
             </td>
-            <td>CAT_00001</td>
-            <td>CAT_00008</td>
+            <td>CAT_000001</td>
+            <td>프로그래밍언어</td>
+            <td>CAT_000008</td>
             <td>java</td>
             <td><a class="ui olive label">사용중</a></td>
         </tr>
@@ -58,8 +62,8 @@
         <tfoot class="full-width">
         <tr>
             <th></th>
-            <th colspan="4">
-                <div class="ui right floated small primary labeled icon button">
+            <th colspan="5">
+                <div class="ui right floated small primary labeled icon button" id="addCat">
                     <i class="plus icon"></i> 카테고리 추가
                 </div>
                 <div class="ui small yellow labeled icon button">

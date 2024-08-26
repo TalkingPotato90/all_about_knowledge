@@ -23,6 +23,10 @@ public class ImpAdminController {
         return "/admin/imp_cat_manage";
     }
 
+    @GetMapping("imp_cat_add.do")
+    public String impAddCat() {
+        return "/admin/imp_cat_add";
+    }
 
 
 }
