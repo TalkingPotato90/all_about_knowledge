@@ -8,9 +8,9 @@
             window.location.href = '${pageContext.request.contextPath}/imp_admin_cat.do';
         });
 		
- 		<%--$('#dashBoard').click(function(){--%>
-        <%--    window.location.href = '${pageContext.request.contextPath}/mypage/mypage_home.do';--%>
-        <%--});--%>
+ 		$('#sub_apply').click(function(){
+            window.location.href = '${pageContext.request.contextPath}/imp_admin_lec.do';
+        });
         
 		<%--$('#myLecture').click(function(){--%>
         <%--    window.location.href = '${pageContext.request.contextPath}/mypage/my_lecture.do';--%>

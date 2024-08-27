@@ -28,5 +28,10 @@ public class ImpAdminController {
         return "/admin/imp_cat_add";
     }
 
+    @GetMapping("imp_admin_lec.do")
+    public String impAdminLec() {
+        return "/admin/imp_lec_manage";
+    }
+
 
 }
